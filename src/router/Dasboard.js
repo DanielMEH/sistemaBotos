@@ -17,7 +17,7 @@ export const Dasboard = () => {
         <Route path="/" element={<div>fff</div>} />
         <Route path="/authlogin" element={<div>Hola xd</div>} />
         <Route path="/authsignup" element={<div>Hola</div>} />
-        <Route path="/admin/*" element={<Header />}>
+        <Route path="/admin/*" element={<div>Hola</div>}>
           <Route path="resultados" element={<Resultados />} />
           <Route path="candidato" element={<Candidatos />} />
           <Route path="elecciones" element={<Elecciones />} />
