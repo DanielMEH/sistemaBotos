@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Elecciones</title>
+</head>
+<body>
+    
+    <header>
+        <nav
+        class="relative w-full flex flex-wrap items-center justify-between py-3 bg-gray-900 text-gray-200 shadow-lg navbar navbar-expand-lg navbar-light"
+      >
+        <div class="container-fluid w-full flex flex-wrap items-center justify-between px-6">
+          <button
+            class="navbar-toggler text-gray-200 border-0 hover:shadow-none hover:no-underline py-2 px-2.5 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none focus:no-underline"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent1"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fas"
+              data-icon="bars"
+              class="w-6"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+            >
+              <path
+                fill="currentColor"
+                d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
+              ></path>
+            </svg>
+          </button>
+          <div class="collapse navbar-collapse flex-grow items-center" id="navbarSupportedContent1">
+            <a class="text-xl text-white pr-2 font-semibold" href="/dasboard">SistamaVoto</a>
+            <!-- Left links -->
+            <ul class="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
+              <li class="nav-item p-2">
+                <a
+                  class="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0"
+                  href="/resultados"
+                  >Resultados</a
+                >
+              </li>
+              <li class="nav-item p-2">
+                <a
+                  class="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0"
+                  href="/elecciones"
+                  >Eleccíones</a
+                >
+              </li>
+              <li class="nav-item p-2">
+                  <a
+                    class="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0"
+                    href="/candidatos"
+                    >Candidatos</a
+                  >
+                </li>
+                <li class="nav-item p-2">
+                  <a
+                    class="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0"
+                    href="/votantes"
+                    >Votantes</a
+                  >
+                </li>
+      
+                <li class="nav-item p-2">
+                  <a
+                    class="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0"
+                    href="/reportes"
+                    >Reportes</a
+                  >
+                </li>
+            </ul>
+          </div>
+          <div class="flex items-center relative">
+            <!-- Icon -->
+              <ul
+                class="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none left-auto right-0"
+                aria-labelledby="dropdownMenuButton1"
+              >
+                <li>
+                  <a
+                    class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                    href="#"
+                    >Action</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                    href="#"
+                    >Another action</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                    href="#"
+                    >Something else here</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="dropdown relative">
+              <a
+                class="dropdown-toggle flex items-center hidden-arrow"
+                href="#"
+                id="dropdownMenuButton2"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+              <span class="mr-1">Cerrar Sesión </span>
+                <img
+                  src="https://mdbootstrap.com/img/new/avatars/2.jpg"
+                  class="rounded-full"
+                  style="height: 25px; width: 25px"
+                  alt=""
+                  loading="lazy"
+                />
+              </a>
+              <ul
+                class="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none left-auto right-0"
+                aria-labelledby="dropdownMenuButton2"
+              >
+              <li>
+                  
+                  <a
+                    class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                    href="#"
+                    >Ajustes</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                    href="#"
+                    >Cerrar Sesión</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+       </header>
+       <main>
+        <section>
+            <div class="bg-gray-200 mx-2 my-5 p-2 rounded">
+              <h2>Elecciones</h2>
+            </div>
+        
+            <div class="">
+                <div>
+                    
+                </div>
+              <div class="border border-gray-900 rounded mx-2">
+              <!-- <div class="border-2" > -->
+              <div>
+                <div class="bg-gray-900 text-white  rounded p-2 flex justify-between items-center">
+                    <h3>lista de Elecciones</h3>
+                    <div class="modal">
+                        <!-- Button trigger modal -->
+<button type="button" class="px-6
+py-2.5
+bg-blue-600
+text-white
+font-medium
+text-xs
+leading-tight
+uppercase
+rounded
+shadow-md
+hover:bg-blue-700 hover:shadow-lg
+focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+active:bg-blue-800 active:shadow-lg
+transition
+duration-150
+ease-in-out" data-bs-toggle="modal" data-bs-target="#exampleModal">
+Agregar nuevo
+</button>
+
+<!-- Modal -->
+<div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog relative w-auto pointer-events-none">
+<div
+class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+<div
+  class="modal-header flex flex-col flex-shrink-0 items-center justify-center p-4 border-b border-gray-200 rounded-t-md">
+  <h5 class="text-xl font-medium leading-normal text-gray-800" id="exampleModalLabel">Ingresar Datos</h5>
+  <div class="block p-6 rounded-lg  bg-white max-w-md">
+    <form>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="form-group mb-6">
+          <input type="text" class="form-control
+            block
+            w-full
+            px-3
+            py-1.5
+            text-base
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput123"
+            aria-describedby="emailHelp123" placeholder="Descripción">
+        </div>
+        <div class="form-group mb-6">
+          <input type="text" class="form-control
+            block
+            w-full
+            px-3
+            py-1.5
+            text-base
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput124"
+            aria-describedby="emailHelp124" placeholder="Cargo">
+        </div>
+      </div>
+      
+      <div class="form-group mb-6">
+        <select class="form-select appearance-none
+      block
+      w-full
+      px-3
+      py-1.5
+      text-base
+      font-normal
+      text-gray-700
+      bg-white bg-clip-padding bg-no-repeat
+      border border-solid border-gray-300
+      rounded
+      transition
+      ease-in-out
+      m-0
+      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+        <option selected>Seleccionar</option>
+        <option value="1">Activo</option>
+        <option value="2">Inactivo</option>
+    </select>
+      </div>
+      
+      <button type="submit" class="
+        w-full
+        px-6
+        py-2.5
+        bg-blue-600
+        text-white
+        font-medium
+        text-xs
+        leading-tight
+        uppercase
+        rounded
+        shadow-md
+        hover:bg-blue-700 hover:shadow-lg
+        focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+        active:bg-blue-800 active:shadow-lg
+        transition
+        duration-150
+        ease-in-out">Registrar</button>
+    </form>
+  </div>
+  <button type="button"
+    class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+    data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body relative p-4">
+  Modal body text goes here.
+</div>
+<div
+  class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
+  <button type="button" class="px-6
+    py-2.5
+    bg-gray-600
+    text-white
+    font-medium
+    text-xs
+    leading-tight
+    uppercase
+    rounded
+    shadow-md
+    hover:bg-gray-700 hover:shadow-lg
+    transition
+    duration-150
+    ease-in-out" data-bs-dismiss="modal">Cerrar</button>
+  
+</div>
+</div>
+</div>
+</div>
+                    </div>
+                </div>
+              <div class=" mx-2 p-10 ">
+                <div class="">
+                    <table id="table_id" class="display">
+                        <thead class="bg-white border-b">
+                            <tr>
+                                <th>Column 1</th>
+                                <th>Column 2</th>
+                                <th>Column 2</th>
+                                <th>Column 2</th>
+                                <th>Column 2</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Row 1 Data 1</td>
+                                <td>Row 1 Data 2</td>
+                                <td>Row 1 Data 2</td>
+                                <td>Row 1 Data 2</td>
+                                <td>Row 1 Data 2</td>
+                            </tr>
+                            <tr>
+                                <td>Row 2 Data 1</td>
+                                <td>Row 2 Data 2</td>
+                                <td>Row 2 Data 2</td>
+                                <td>Row 2 Data 2</td>
+                                <td>Row 2 Data 2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+              </div>
+              </div>
+            </section>
+       </main>
+       <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script>
+    $(document).ready( function () {
+    $('#table_id').DataTable();
+} );
+</script>
+       <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+</body>
+</html>
