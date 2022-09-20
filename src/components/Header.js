@@ -2,6 +2,7 @@ import React from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faArrowRightToBracket} from '@fortawesome/free-solid-svg-icons'
+import {Link } from "react-router-dom"
 export const Header = () => {
   return (
     <>
@@ -23,7 +24,7 @@ export const Header = () => {
             <FontAwesomeIcon icon={faBars}/>
           </button>
           <div className="collapse navbar-collapse flex-grow items-center" id="navbarSupportedContent1">
-            <a className="text-xl text-white pr-2 font-semibold" href="/dasboard">SistamaVoto</a>
+            <Link className="text-xl text-white pr-2 font-semibold" href="/dasboard">SistamaVoto</Link>
        
             <ul className="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
               <li className="nav-item p-2">
