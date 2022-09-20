@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Reportes</title>
+</head>
+<body>
+    <header>
+        <nav
+        class="relative w-full flex flex-wrap items-center justify-between py-3 bg-gray-900 text-gray-200 shadow-lg navbar navbar-expand-lg navbar-light"
+      >
+        <div class="container-fluid w-full flex flex-wrap items-center justify-between px-6">
+          <button
+            class="navbar-toggler text-gray-200 border-0 hover:shadow-none hover:no-underline py-2 px-2.5 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none focus:no-underline"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent1"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fas"
+              data-icon="bars"
+              class="w-6"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+            >
+              <path
+                fill="currentColor"
+                d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
+              ></path>
+            </svg>
+          </button>
+          <div class="collapse navbar-collapse flex-grow items-center" id="navbarSupportedContent1">
+            <a class="text-xl text-white pr-2 font-semibold" href="/dasboard">SistamaVoto</a>
+            <!-- Left links -->
+            <ul class="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
+              <li class="nav-item p-2">
+                <a
+                  class="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0"
+                  href="/resultados"
+                  >Resultados</a
+                >
+              </li>
+              <li class="nav-item p-2">
+                <a
+                  class="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0"
+                  href="/elecciones"
+                  >Eleccíones</a
+                >
+              </li>
+              <li class="nav-item p-2">
+                  <a
+                    class="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0"
+                    href="/candidatos"
+                    >Candidatos</a
+                  >
+                </li>
+                <li class="nav-item p-2">
+                  <a
+                    class="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0"
+                    href="/votantes"
+                    >Votantes</a
+                  >
+                </li>
+      
+                <li class="nav-item p-2">
+                  <a
+                    class="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0"
+                    href="/reportes"
+                    >Reportes</a
+                  >
+                </li>
+            </ul>
+          </div>
+          <div class="flex items-center relative">
+            <!-- Icon -->
+              <ul
+                class="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none left-auto right-0"
+                aria-labelledby="dropdownMenuButton1"
+              >
+                <li>
+                  <a
+                    class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                    href="#"
+                    >Action</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                    href="#"
+                    >Another action</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                    href="#"
+                    >Something else here</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="dropdown relative">
+              <a
+                class="dropdown-toggle flex items-center hidden-arrow"
+                href="#"
+                id="dropdownMenuButton2"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+              <span class="mr-1">Cerrar Sesión </span>
+                <img
+                  src="https://mdbootstrap.com/img/new/avatars/2.jpg"
+                  class="rounded-full"
+                  style="height: 25px; width: 25px"
+                  alt=""
+                  loading="lazy"
+                />
+              </a>
+              <ul
+                class="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none left-auto right-0"
+                aria-labelledby="dropdownMenuButton2"
+              >
+              <li>
+                  
+                  <a
+                    class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                    href="#"
+                    >Ajustes</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                    href="#"
+                    >Cerrar Sesión</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+       </header>
+       <main>
+        <section>
+            <div class="bg-gray-200 mx-2 my-5 p-2 rounded">
+              <h2>Elecciones</h2>
+            </div>
+        
+            <div class="">
+                <div>
+                    
+                </div>
+              <div class="border border-gray-900 rounded mx-2">
+              <!-- <div class="border-2" > -->
+              <div>
+                <div class="bg-gray-900 text-white  rounded p-2 flex justify-between items-center">
+                    <h3>lista de Elecciones</h3>
+                    
+                    </div>
+                </div>
+               
+                    <div class=" mx-2 p-10 ">
+                      <div class="mb-3 xl:w-96">
+                        <select class="form-select appearance-none
+                          block
+                          w-full
+                          px-3
+                          py-1.5
+                          text-base
+                          font-normal
+                          text-gray-700
+                          bg-white bg-clip-padding bg-no-repeat
+                          border border-solid border-gray-300
+                          rounded
+                          transition
+                          ease-in-out
+                          m-0
+                          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                            <option selected>Seleccionar</option>
+                            <option value="1">candidatos</option>
+                            <option value="2">Votantes</option>
+                        </select>
+                      </div>
+                      </div>
+                    </div>
+                    </div>
+              
+                    </div>
+        </section>
+        <section>
+            
+        
+            <div class="">
+                <div>
+                    
+                </div>
+              <div class="border border-gray-900 rounded mx-2 mt-2">
+              <!-- <div class="border-2" > -->
+              <div>
+                <div class="bg-gray-900 text-white  rounded p-2 flex justify-between items-center">
+                    <h3>Lista de Candidatos</h3>
+          
+                </div>
+              <div class=" mx-2 p-10 ">
+                <div class="">
+                    <table id="table_id" class="display">
+                        <thead class="bg-white border-b">
+                            <tr>
+                                <th>Documento de entidad</th>
+                                <th>Nombres</th>
+                                <th>Apellidos</th>
+                                <th>Fecha Registrado</th>
+                                <th>Emitio Voto</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>45148958</td>
+                                <td>Juana Maria</td>
+                                <td>Vegas</td>
+                                <td>20/09/2022</td>
+                                <td>Si</td>
+                            </tr>
+                            <tr>
+                                <td>1987657266</td>
+                                <td>Juan Camilo</td>
+                                <td>Restrepo Henao</td>
+                                <td>22/08/2022</td>
+                                <td>No</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+              </div>
+              </div>
+            </section>
+       </main>
+       
+       <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+       <script>
+           $(document).ready( function () {
+           $('#table_id').DataTable();
+           
+       } );
+       var table = $('#myTable').DataTable();
+ 
+new $.fn.dataTable.KeyTable( table, {
+    // options
+} );
+       </script>
+              <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+           <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+</body>
+</html>
+</body>
+</html>
