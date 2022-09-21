@@ -36,10 +36,10 @@ export const Votantes = () => {
                           focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                     aria-label="Default select example"
                   >
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option selected>Seleccionar una eleccion</option>
+                    <option value="1">Eleccion 1</option>
+                    <option value="2"> Eleccion 2</option>
+                    <option value="3">Eleccion 4</option>
                   </select>
                   <div class="flex space-x-2 justify-center mx-2">
                     <div
@@ -74,7 +74,7 @@ export const Votantes = () => {
                                   for="formFile"
                                   class="form-label inline-block mb-2 text-gray-700"
                                 >
-                                  Seleccionar Archivo .xlsx
+                                  Seleccionar Archivo .Csv
                                 </label>
                                 <input
                                   class="form-control
@@ -389,6 +389,7 @@ ease-in-out"
                         <th>Apellidos</th>
                         <th>Fecha Registrado</th>
                         <th>Estado</th>
+                        <th>Elección</th>
                         <th>Ajustes</th>
                       </tr>
                     </thead>
@@ -399,6 +400,7 @@ ease-in-out"
                         <td>Leal Henao</td>
                         <td>20/09/2022</td>
                         <td>Activo</td>
+                        <td>Excelencia</td>
                         <td>
                           <div class="btn">
                             <a
@@ -422,6 +424,7 @@ ease-in-out"
                         <td>Leal Henao</td>
                         <td>20/09/2022</td>
                         <td>Inactivo</td>
+                        <td>Representante del sena</td>
 
                         <td>
                           <div class="btn">

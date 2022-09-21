@@ -7,6 +7,7 @@ import { Votantes } from "../page/Votantes";
 import { Reportes } from "../page/Reportes";
 import { Admin } from "../layouts/AdminAuthentic";
 import { AprendizAuthentic } from "../layouts/AprendizAuthentic";
+import { RecoveryPassword } from "../layouts/RecoveryPassword";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 const Router = () => {
   return (
@@ -17,6 +18,7 @@ const Router = () => {
       <Route path="/votantes" element={<Votantes />} />
       <Route path="/reportes" element={<Reportes />} />
       <Route path="/AdminAttenctiacion" element={<Admin />} />
+      <Route path="/recoveryPasswordAdmin" element={<RecoveryPassword />} />
       <Route path="/" element={<AprendizAuthentic />} />
       {/* <Route path="/" element={<Login />} />
       <Route path="/User/:id" element={<Login />} />

@@ -191,7 +191,7 @@ ease-in-out"
             <div class="">
               <table
                 id="table_id"
-                class="ui celled table responsive nowrap unstackable "
+                class="ui celled table table-striped table-bordered responsive nowrap unstackable "
                 style={{ width: "100%" }}
               >
                 <thead class="bg-white border-b">
@@ -199,6 +199,7 @@ ease-in-out"
                     <th>Descripción</th>
                     <th>Cargo</th>
                     <th>Fecha de registro</th>
+                    <th>Numero de participantes</th>
                     <th>Estado</th>
                     <th>Ajustes</th>
                   </tr>
@@ -208,6 +209,7 @@ ease-in-out"
                     <td>Aprendiz participa para la execelencia</td>
                     <td>Responsable de las acciones</td>
                     <td>20/09/2022</td>
+                    <td>3</td>
                     <td>Inactivo</td>
                     <td>
                       <div class="btn">
@@ -230,6 +232,7 @@ ease-in-out"
                     <td>Aprendiz participa para la execelencia</td>
                     <td>Responsable de las acciones</td>
                     <td>20/09/2022</td>
+                    <td>5</td>
                     <td>Activo</td>
                     <td>
                       <div class="btn">

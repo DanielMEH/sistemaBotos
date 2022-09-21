@@ -1,11 +1,11 @@
-import React from 'react'
-import { Header } from '../components/Header'
+import React from "react";
+import { Header } from "../components/Header";
 
 export const Candidatos = () => {
   return (
     <>
       <Header />
-
+ 
       <main>
         <section>
           <div class="bg-gray-200 mx-2 my-5 p-2 rounded">
@@ -40,10 +40,10 @@ export const Candidatos = () => {
                           focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                       aria-label="Default select example"
                     >
-                      <option selected>Open this select menu</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                      <option selected>Elegir eleccion</option>
+                      <option value="1">Eleccion 1</option>
+                      <option value="2">Eleccion 2</option>
+                      <option value="3">Eleccion 3</option>
                     </select>
                   </div>
                 </div>
@@ -127,6 +127,46 @@ ease-in-out"
                                   />
                                 </div>
                                 <div class="form-group mb-6">
+                              
+                                   <input
+                                    type="text"
+                                    class="form-control block
+            w-full
+            px-3
+            py-1.5
+            text-base
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            mt-2
+            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                    id="exampleInput7"
+                                    placeholder="Documento"
+                                  />
+                                    <input
+                                    type="text"
+                                    class="form-control block
+            w-full
+            px-3
+            py-1.5
+            text-base
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            mt-2
+            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                    id="exampleInput7"
+                                    placeholder="Nombres Completo y apellidos"
+                                  />
+                                  
                                   <input
                                     type="text"
                                     class="form-control block
@@ -141,10 +181,29 @@ ease-in-out"
             rounded
             transition
             ease-in-out
-            m-0
+            mt-2
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                     id="exampleInput7"
-                                    placeholder="Nombre Completo"
+                                    placeholder="Programa de Formacion"
+                                  />
+                                  <input
+                                    type="number"
+                                    class="form-control block
+            w-full
+            px-3
+            py-1.5
+            text-base
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            mt-2
+            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                    id="exampleInput7"
+                                    placeholder="Numero de la ficha"
                                   />
                                 </div>
                                 <div class="form-group mb-6">
@@ -192,11 +251,11 @@ ease-in-out"
                                       aria-label="Default select example"
                                     >
                                       <option selected>
-                                        Open this select menu
+                                      Selecionar el estado
                                       </option>
-                                      <option value="1">One</option>
-                                      <option value="2">Two</option>
-                                      <option value="3">Three</option>
+                                      <option value="1">Activo</option>
+                                      <option value="2">Inactivo</option>
+                                      
                                     </select>
                                   </div>
                                 </div>
@@ -204,14 +263,8 @@ ease-in-out"
                                 and relies
                                 <button
                                   type="submit"
-                                  class="
-          w-full
-          px-6
-          py-2.5
-          bg-blue-600
-          text-white
-          font-medium
-          text-xs
+                                  class=" w-full px-6 py-2.5 bg-blue-600 text-white font-medium
+          text-xsf
           leading-tight
           uppercase
           rounded
@@ -270,21 +323,27 @@ ease-in-out"
                     >
                       <thead class="bg-white border-b">
                         <tr>
+                          <th>Documento</th>
                           <th>Foto</th>
-                          <th>Nombre Completo</th>
+                          <th>Nombres y apellidos</th>
+                          <th>Programa de formación</th>
+                          <th>Numero de la ficha</th>
                           <th>Descripción</th>
-                          <th>Fecha Registrado</th>
                           <th>Estado</th>
+                          <th>Fecha de registro</th>
                           <th>Ajustes</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
+                          <td>1005090349</td>
                           <td>Foto #1</td>
-                          <td>Juan Daniel Opina O</td>
-                          <td>Exelencia</td>
-                          <td>20/09/2022</td>
+                          <td>Juan Daniel </td>
+                          <td>Adsi</td>
+                          <td>2469181</td>
+                          <td>Excelencia</td>
                           <td>Inactivo</td>
+                          <td>12-04-2022</td>
 
                           <td>
                             <div class="btn">
@@ -304,12 +363,14 @@ ease-in-out"
                           </td>
                         </tr>
                         <tr>
+                          <td>1109414100</td>
                           <td>Foto #1</td>
                           <td>Juan Daniel Opina O</td>
+                          <td>Gestión Empresarial</td>
+                          <td>1125634</td>
                           <td>Exelencia</td>
-                          <td>20/09/2022</td>
                           <td>Inactivo</td>
-
+                          <td>12-04-2022</td>
                           <td>
                             <div class="btn">
                               <a
@@ -326,6 +387,277 @@ ease-in-out"
                               </a>
                             </div>
                           </td>
+                          
+                        </tr>
+                        <tr>
+                          <td>1109414100</td>
+                          <td>Foto #1</td>
+                          <td>Juan Daniel Opina O</td>
+                          <td>Gestión Empresarial</td>
+                          <td>1125634</td>
+                          <td>Exelencia</td>
+                          <td>Inactivo</td>
+                          <td>12-04-2022</td>
+                          <td>
+                            <div class="btn">
+                              <a
+                                class="bg-blue-600 text-white rounded p-1 m-1"
+                                href="/edit"
+                              >
+                                Editar
+                              </a>
+                              <a
+                                class="bg-red-600 text-white p-1 rounded m-1"
+                                href="/delete"
+                              >
+                                Eliminar
+                              </a>
+                            </div>
+                          </td>
+                          
+                        </tr>
+                        <tr>
+                          <td>1109414100</td>
+                          <td>Foto #1</td>
+                          <td>Juan Daniel Opina O</td>
+                          <td>Gestión Empresarial</td>
+                          <td>1125634</td>
+                          <td>Exelencia</td>
+                          <td>Inactivo</td>
+                          <td>12-04-2022</td>
+                          <td>
+                            <div class="btn">
+                              <a
+                                class="bg-blue-600 text-white rounded p-1 m-1"
+                                href="/edit"
+                              >
+                                Editar
+                              </a>
+                              <a
+                                class="bg-red-600 text-white p-1 rounded m-1"
+                                href="/delete"
+                              >
+                                Eliminar
+                              </a>
+                            </div>
+                          </td>
+                          
+                        </tr>
+                        <tr>
+                          <td>1109414100</td>
+                          <td>Foto #1</td>
+                          <td>Juan Daniel Opina O</td>
+                          <td>Gestión Empresarial</td>
+                          <td>1125634</td>
+                          <td>Exelencia</td>
+                          <td>Inactivo</td>
+                          <td>12-04-2022</td>
+                          <td>
+                            <div class="btn">
+                              <a
+                                class="bg-blue-600 text-white rounded p-1 m-1"
+                                href="/edit"
+                              >
+                                Editar
+                              </a>
+                              <a
+                                class="bg-red-600 text-white p-1 rounded m-1"
+                                href="/delete"
+                              >
+                                Eliminar
+                              </a>
+                            </div>
+                          </td>
+                          
+                        </tr>
+                        <tr>
+                          <td>1109414100</td>
+                          <td>Foto #1</td>
+                          <td>Juan Daniel Opina O</td>
+                          <td>Gestión Empresarial</td>
+                          <td>1125634</td>
+                          <td>Exelencia</td>
+                          <td>Inactivo</td>
+                          <td>12-04-2022</td>
+                          <td>
+                            <div class="btn">
+                              <a
+                                class="bg-blue-600 text-white rounded p-1 m-1"
+                                href="/edit"
+                              >
+                                Editar
+                              </a>
+                              <a
+                                class="bg-red-600 text-white p-1 rounded m-1"
+                                href="/delete"
+                              >
+                                Eliminar
+                              </a>
+                            </div>
+                          </td>
+                          
+                        </tr>
+                        <tr>
+                          <td>1109414100</td>
+                          <td>Foto #1</td>
+                          <td>Juan Daniel Opina O</td>
+                          <td>Gestión Empresarial</td>
+                          <td>1125634</td>
+                          <td>Exelencia</td>
+                          <td>Inactivo</td>
+                          <td>12-04-2022</td>
+                          <td>
+                            <div class="btn">
+                              <a
+                                class="bg-blue-600 text-white rounded p-1 m-1"
+                                href="/edit"
+                              >
+                                Editar
+                              </a>
+                              <a
+                                class="bg-red-600 text-white p-1 rounded m-1"
+                                href="/delete"
+                              >
+                                Eliminar
+                              </a>
+                            </div>
+                          </td>
+                          
+                        </tr>
+                        <tr>
+                          <td>1109414100</td>
+                          <td>Foto #1</td>
+                          <td>Juan Daniel Opina O</td>
+                          <td>Gestión Empresarial</td>
+                          <td>1125634</td>
+                          <td>Exelencia</td>
+                          <td>Inactivo</td>
+                          <td>12-04-2022</td>
+                          <td>
+                            <div class="btn">
+                              <a
+                                class="bg-blue-600 text-white rounded p-1 m-1"
+                                href="/edit"
+                              >
+                                Editar
+                              </a>
+                              <a
+                                class="bg-red-600 text-white p-1 rounded m-1"
+                                href="/delete"
+                              >
+                                Eliminar
+                              </a>
+                            </div>
+                          </td>
+                          
+                        </tr>
+                        <tr>
+                          <td>1109414100</td>
+                          <td>Foto #1</td>
+                          <td>Juan Daniel Opina O</td>
+                          <td>Gestión Empresarial</td>
+                          <td>1125634</td>
+                          <td>Exelencia</td>
+                          <td>Inactivo</td>
+                          <td>12-04-2022</td>
+                          <td>
+                            <div class="btn">
+                              <a
+                                class="bg-blue-600 text-white rounded p-1 m-1"
+                                href="/edit"
+                              >
+                                Editar
+                              </a>
+                              <a
+                                class="bg-red-600 text-white p-1 rounded m-1"
+                                href="/delete"
+                              >
+                                Eliminar
+                              </a>
+                            </div>
+                          </td>
+                          
+                        </tr>
+                        <tr>
+                          <td>1109414100</td>
+                          <td>Foto #1</td>
+                          <td>Juan Daniel Opina O</td>
+                          <td>Gestión Empresarial</td>
+                          <td>1125634</td>
+                          <td>Exelencia</td>
+                          <td>Inactivo</td>
+                          <td>12-04-2022</td>
+                          <td>
+                            <div class="btn">
+                              <a
+                                class="bg-blue-600 text-white rounded p-1 m-1"
+                                href="/edit"
+                              >
+                                Editar
+                              </a>
+                              <a
+                                class="bg-red-600 text-white p-1 rounded m-1"
+                                href="/delete"
+                              >
+                                Eliminar
+                              </a>
+                            </div>
+                          </td>
+                          
+                        </tr>
+                        <tr>
+                          <td>1109414100</td>
+                          <td>Foto #1</td>
+                          <td>Juan Daniel Opina O</td>
+                          <td>Gestión Empresarial</td>
+                          <td>1125634</td>
+                          <td>Exelencia</td>
+                          <td>Inactivo</td>
+                          <td>12-04-2022</td>
+                          <td>
+                            <div class="btn">
+                              <a
+                                class="bg-blue-600 text-white rounded p-1 m-1"
+                                href="/edit"
+                              >
+                                Editar
+                              </a>
+                              <a
+                                class="bg-red-600 text-white p-1 rounded m-1"
+                                href="/delete"
+                              >
+                                Eliminar
+                              </a>
+                            </div>
+                          </td>
+                          
+                        </tr>
+                        <tr>
+                          <td>1109414100</td>
+                          <td>Foto #1</td>
+                          <td>Juan Daniel Opina O</td>
+                          <td>Gestión Empresarial</td>
+                          <td>1125634</td>
+                          <td>Exelencia</td>
+                          <td>Inactivo</td>
+                          <td>12-04-2022</td>
+                          <td>
+                            <div class="btn">
+                              <a
+                                class="bg-blue-600 text-white rounded p-1 m-1"
+                                href="/edit"
+                              >
+                                Editar
+                              </a>
+                              <a
+                                class="bg-red-600 text-white p-1 rounded m-1"
+                                href="/delete"
+                              >
+                                Eliminar
+                              </a>
+                            </div>
+                          </td>
+                          
                         </tr>
                       </tbody>
                     </table>
@@ -338,4 +670,4 @@ ease-in-out"
       </main>
     </>
   );
-}
+};
