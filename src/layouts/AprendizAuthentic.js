@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>loginAdmin</title>
-</head>
-<body>
-    <div class="login">
+import React from 'react'
+
+export const AprendizAuthentic = () => {
+  return (
+      <>
+          <title>Login</title>
+      <div class="login">
         <div class="block p-6 rounded-lg h-48 shadow-2xl border bg-white max-w-sm absolute inset-0 m-auto">
             <form>
               <div class="form-group mb-6">
@@ -31,7 +23,7 @@
                   ease-in-out
                   m-0
                   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInputPassword2"
-                  placeholder="Documento">
+                  placeholder="Documento"/>
               </div>
               <button type="submit" class="
                 w-full
@@ -54,6 +46,6 @@
             </form>
           </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
-</body>
-</html>
+      </>
+  )
+}
