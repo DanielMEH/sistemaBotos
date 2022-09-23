@@ -6,7 +6,7 @@ export const AprendizAuthentic = () => {
       <title>Login</title>
       <div class="login">
         <div class="block p-6 rounded-lg h-48 shadow-2xl border bg-white max-w-sm absolute inset-0 m-auto">
-          <form>
+          <form action="/selectEleccion">
             <div class="form-group mb-6">
               <label
                 for="exampleInputPassword2"

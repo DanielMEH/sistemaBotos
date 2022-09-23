@@ -9,6 +9,8 @@ import { Admin } from "../layouts/AdminAuthentic";
 import { AprendizAuthentic } from "../layouts/AprendizAuthentic";
 import { RecoveryPassword } from "../layouts/RecoveryPassword";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { CandidatoVotar } from "../layouts/CandidatoVotar";
+import { Select } from "../layouts/Select";
 const Router = () => {
   return (
     <Routes>
@@ -18,8 +20,10 @@ const Router = () => {
       <Route path="/votantes" element={<Votantes />} />
       <Route path="/reportes" element={<Reportes />} />
       <Route path="/AdminAttenctiacion" element={<Admin />} />
+      <Route path="/CandidatoVotar" element={<CandidatoVotar />} />
       <Route path="/recoveryPasswordAdmin" element={<RecoveryPassword />} />
       <Route path="/" element={<AprendizAuthentic />} />
+      <Route path="/selectEleccion" element={<Select/>} />
       {/* <Route path="/" element={<Login />} />
       <Route path="/User/:id" element={<Login />} />
       <Route path="/count/User" element={<Login />} />

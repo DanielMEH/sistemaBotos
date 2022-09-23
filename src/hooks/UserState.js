@@ -3,14 +3,14 @@ import { UserReducer } from "./UserReducer";
 import { UserContext } from "./UserContext";
 import {LoginInsert} from "../api/userAuthentication";
 import axios from "axios"
-export const UserState = async(props) => {
+export const UserState = async({data}) => {
     const initialData = {
         documento: null,
         selectUser: null
     };
-  const [state, dispatch] = useReducer(first, initialData);
+  const [state, dispatch] = useReducer(firstd, initialData);
 
-  const res = await LoginInsert(state)
+  const res = await LoginInsert(data)
 
   if (res.messahge = "Login") {
     
@@ -19,7 +19,8 @@ export const UserState = async(props) => {
   }
 
     const getUser = async() => {
-     const res = axios.get("")
+     const res = axios.get("https://api.twitter");
+
         
   };
   const getProfile = () => {};

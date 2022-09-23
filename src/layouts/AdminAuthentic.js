@@ -5,7 +5,7 @@ export const Admin = () => {
     <>
       <div class="login bg-slate-900">
         <div class="block p-6 rounded-lg h-fit border shadow-2xl bg-white max-w-sm absolute inset-0 m-auto">
-          <form>
+          <form action="/dasboard">
             <h2 class="text-center text-2xl font-semibold mb-2">
               Iniciar Sesión
             </h2>

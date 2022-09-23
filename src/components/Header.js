@@ -5,7 +5,7 @@ import {
   faBars,
   faArrowRightToBracket,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink,  } from "react-router-dom";
 export const Header = () => {
   return (
     <>
@@ -36,61 +36,61 @@ export const Header = () => {
 
               <ul className="navbar-nav flex flex-col sm:text-2xl pl-0 list-style-none mr-auto">
                 <li className="nav-item p-2">
-                  <NavLink
+                  <a
                     className="nav-link  hover:text-black text-white  hover:red-400  focus:opacity-80 p-0"
-                    to="/dasboard"
+                    href="/dasboard"
                   >
                     Resultados
-                  </NavLink>
+                  </a>
                 </li>
                 <li className="nav-item p-2">
-                  <NavLink
+                  <a
                     className={({ isActive }) =>
                       isActive
                         ? "nav-link hover:text-black text-black  hover:opacity-80 focus:opacity-80 p-0"
                         : "nav-link hover:text-black text-white  hover:opacity-80 focus:opacity-80 p-0"
                     }
-                    to="/elecciones"
+                    href="/elecciones"
                   >
                     Eleccíones
-                  </NavLink>
+                  </a>
                 </li>
                 <li className="nav-item p-2">
-                  <NavLink
+                  <a
                     className={({ isActive }) =>
                       isActive
                         ? "nav-link hover:text-black text-black  hover:opacity-80 focus:opacity-80 p-0"
                         : "nav-link hover:text-black text-white  hover:opacity-80 focus:opacity-80 p-0"
                     }
-                    to="/candidatos"
+                    href="/candidatos"
                   >
                     Candidatos
-                  </NavLink>
+                  </a>
                 </li>
                 <li className="nav-item p-2">
-                  <NavLink
+                  <a
                     className={({ isActive }) =>
                       isActive
                         ? "nav-link hover:text-black text-black  hover:opacity-80 focus:opacity-80 p-0"
                         : "nav-link hover:text-black text-white  hover:opacity-80 focus:opacity-80 p-0"
                     }
-                    to="/votantes"
+                    href="/votantes"
                   >
                     Votantes
-                  </NavLink>
+                  </a>
                 </li>
 
                 <li className="nav-item p-2">
-                  <NavLink
+                  <a
                     className={({ isActive }) =>
                       isActive
                         ? "nav-link hover:text-black text-black  hover:opacity-80 focus:opacity-80 p-0"
                         : "nav-link hover:text-black text-white  hover:opacity-80 focus:opacity-80 p-0"
                     }
-                    to="/reportes"
+                    href="/reportes"
                   >
                     Reportes
-                  </NavLink>
+                  </a>
                 </li>
               </ul>
             </div>

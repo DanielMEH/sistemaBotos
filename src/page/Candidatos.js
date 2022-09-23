@@ -321,7 +321,7 @@ ease-in-out"
                     >
                       <thead class="bg-white border-b">
                         <tr>
-                          <th>Documento</th>
+                          <th >Documentos</th>
                           <th>Foto</th>
                           <th>Nombres y apellidos</th>
                           <th>Programa de formación</th>
@@ -346,13 +346,13 @@ ease-in-out"
                           <td>
                             <div class="btn">
                               <a
-                                class="bg-blue-600 text-white rounded p-1 m-1"
+                                class="bg-gray-600 text-white rounded p-2 m-1"
                                 href="/edit"
                               >
                                 Editar
                               </a>
                               <a
-                                class="bg-red-600 text-white p-1 rounded m-1"
+                                class="bg-red-600 text-white p-2 rounded m-1"
                                 href="/delete"
                               >
                                 Eliminar
@@ -372,13 +372,13 @@ ease-in-out"
                           <td>
                             <div class="btn">
                               <a
-                                class="bg-blue-600 text-white rounded p-1 m-1"
+                                class="bg-gray-600 text-white rounded p-2 m-1"
                                 href="/edit"
                               >
                                 Editar
                               </a>
                               <a
-                                class="bg-red-600 text-white p-1 rounded m-1"
+                                class="bg-red-600 text-white p-2 rounded m-1"
                                 href="/delete"
                               >
                                 Eliminar
@@ -398,13 +398,13 @@ ease-in-out"
                           <td>
                             <div class="btn">
                               <a
-                                class="bg-blue-600 text-white rounded p-1 m-1"
+                                class="bg-gray-600 text-white rounded p-2 m-1"
                                 href="/edit"
                               >
                                 Editar
                               </a>
                               <a
-                                class="bg-red-600 text-white p-1 rounded m-1"
+                                class="bg-red-600 text-white p-2 rounded m-1"
                                 href="/delete"
                               >
                                 Eliminar
@@ -424,13 +424,13 @@ ease-in-out"
                           <td>
                             <div class="btn">
                               <a
-                                class="bg-blue-600 text-white rounded p-1 m-1"
+                                class="bg-gray-600 text-white rounded p-2 m-1"
                                 href="/edit"
                               >
                                 Editar
                               </a>
                               <a
-                                class="bg-red-600 text-white p-1 rounded m-1"
+                                class="bg-red-600 text-white p-2 rounded m-1"
                                 href="/delete"
                               >
                                 Eliminar
@@ -450,13 +450,13 @@ ease-in-out"
                           <td>
                             <div class="btn">
                               <a
-                                class="bg-blue-600 text-white rounded p-1 m-1"
+                                class="bg-gray-600 text-white rounded p-2 m-1"
                                 href="/edit"
                               >
                                 Editar
                               </a>
                               <a
-                                class="bg-red-600 text-white p-1 rounded m-1"
+                                class="bg-red-600 text-white p-2 rounded m-1"
                                 href="/delete"
                               >
                                 Eliminar
@@ -476,13 +476,13 @@ ease-in-out"
                           <td>
                             <div class="btn">
                               <a
-                                class="bg-blue-600 text-white rounded p-1 m-1"
+                                class="bg-gray-600 text-white rounded p-2 m-1"
                                 href="/edit"
                               >
                                 Editar
                               </a>
                               <a
-                                class="bg-red-600 text-white p-1 rounded m-1"
+                                class="bg-red-600 text-white p-2 rounded m-1"
                                 href="/delete"
                               >
                                 Eliminar
@@ -502,13 +502,13 @@ ease-in-out"
                           <td>
                             <div class="btn">
                               <a
-                                class="bg-blue-600 text-white rounded p-1 m-1"
+                                class="bg-gray-600 text-white rounded p-2 m-1"
                                 href="/edit"
                               >
                                 Editar
                               </a>
                               <a
-                                class="bg-red-600 text-white p-1 rounded m-1"
+                                class="bg-red-600 text-white p-2 rounded m-1"
                                 href="/delete"
                               >
                                 Eliminar
@@ -528,13 +528,13 @@ ease-in-out"
                           <td>
                             <div class="btn">
                               <a
-                                class="bg-blue-600 text-white rounded p-1 m-1"
+                                class="bg-gray-600 text-white rounded p-2 m-1"
                                 href="/edit"
                               >
                                 Editar
                               </a>
                               <a
-                                class="bg-red-600 text-white p-1 rounded m-1"
+                                class="bg-red-600 text-white p-2 rounded m-1"
                                 href="/delete"
                               >
                                 Eliminar
@@ -554,13 +554,13 @@ ease-in-out"
                           <td>
                             <div class="btn">
                               <a
-                                class="bg-blue-600 text-white rounded p-1 m-1"
+                                class="bg-gray-600 text-white rounded p-2 m-1"
                                 href="/edit"
                               >
                                 Editar
                               </a>
                               <a
-                                class="bg-red-600 text-white p-1 rounded m-1"
+                                class="bg-red-600 text-white p-2 rounded m-1"
                                 href="/delete"
                               >
                                 Eliminar
@@ -580,13 +580,13 @@ ease-in-out"
                           <td>
                             <div class="btn">
                               <a
-                                class="bg-blue-600 text-white rounded p-1 m-1"
+                                class="bg-gray-600 text-white rounded p-2 m-1"
                                 href="/edit"
                               >
                                 Editar
                               </a>
                               <a
-                                class="bg-red-600 text-white p-1 rounded m-1"
+                                class="bg-red-600 text-white p-2 rounded m-1"
                                 href="/delete"
                               >
                                 Eliminar
@@ -606,13 +606,13 @@ ease-in-out"
                           <td>
                             <div class="btn">
                               <a
-                                class="bg-blue-600 text-white rounded p-1 m-1"
+                                class="bg-gray-600 text-white rounded p-2 m-1"
                                 href="/edit"
                               >
                                 Editar
                               </a>
                               <a
-                                class="bg-red-600 text-white p-1 rounded m-1"
+                                class="bg-red-600 text-white p-2 rounded m-1"
                                 href="/delete"
                               >
                                 Eliminar
@@ -632,13 +632,13 @@ ease-in-out"
                           <td>
                             <div class="btn">
                               <a
-                                class="bg-blue-600 text-white rounded p-1 m-1"
+                                class="bg-gray-600 text-white rounded p-2 m-1"
                                 href="/edit"
                               >
                                 Editar
                               </a>
                               <a
-                                class="bg-red-600 text-white p-1 rounded m-1"
+                                class="bg-red-600 text-white p-2 rounded m-1"
                                 href="/delete"
                               >
                                 Eliminar
