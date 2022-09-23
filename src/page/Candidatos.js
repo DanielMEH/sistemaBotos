@@ -5,17 +5,17 @@ export const Candidatos = () => {
   return (
     <>
       <Header />
- 
+
       <main>
         <section>
           <div class="bg-gray-200 mx-2 my-5 p-2 rounded">
             <h2>Elecciones</h2>
           </div>
           <div class="">
-            <div class="border border-gray-900 rounded mx-2">
+            <div class="border border-gray-200 rounded mx-2">
               <div class="border-2">
                 <div>
-                  <div class="bg-gray-900 text-white  rounded p-2 flex justify-between items-center">
+                  <div class="bg-[#ff8138]  text-white  rounded p-2 flex justify-between items-center">
                     <h3>lista de Elecciones</h3>
                   </div>
                 </div>
@@ -51,27 +51,27 @@ export const Candidatos = () => {
             </div>
           </div>
           {/* /*-- ggggg*/}
-          <div class="border border-gray-900 rounded mx-2 mt-2">
+          <div class="border border-gray-200 rounded mx-2 mt-2">
             <div class="border-2">
               <div>
-                <div class="bg-gray-900 text-white  rounded p-2 flex justify-between items-center">
+                <div class="bg-[#ff8138]  text-white  rounded p-2 flex justify-between items-center">
                   <h3>lista de candidatos</h3>
                   <div class="modal">
                     <button
                       type="button"
                       class="px-6
 py-2.5
-bg-blue-600
-text-white
+bg-gray-200
+text-black
 font-medium
 text-xs
 leading-tight
 uppercase
 rounded
 shadow-md
-hover:bg-blue-700 hover:shadow-lg
-focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
-active:bg-blue-800 active:shadow-lg
+hover:bg-gray-300 hover:shadow-lg
+focus:bg-gray-300 focus:shadow-lg focus:outline-none focus:ring-0
+active:bg-gray-300 active:shadow-lg
 transition
 duration-150
 ease-in-out"
@@ -127,8 +127,7 @@ ease-in-out"
                                   />
                                 </div>
                                 <div class="form-group mb-6">
-                              
-                                   <input
+                                  <input
                                     type="text"
                                     class="form-control block
             w-full
@@ -147,7 +146,7 @@ ease-in-out"
                                     id="exampleInput7"
                                     placeholder="Documento"
                                   />
-                                    <input
+                                  <input
                                     type="text"
                                     class="form-control block
             w-full
@@ -166,7 +165,7 @@ ease-in-out"
                                     id="exampleInput7"
                                     placeholder="Nombres Completo y apellidos"
                                   />
-                                  
+
                                   <input
                                     type="text"
                                     class="form-control block
@@ -251,11 +250,10 @@ ease-in-out"
                                       aria-label="Default select example"
                                     >
                                       <option selected>
-                                      Selecionar el estado
+                                        Selecionar el estado
                                       </option>
                                       <option value="1">Activo</option>
                                       <option value="2">Inactivo</option>
-                                      
                                     </select>
                                   </div>
                                 </div>
@@ -387,7 +385,6 @@ ease-in-out"
                               </a>
                             </div>
                           </td>
-                          
                         </tr>
                         <tr>
                           <td>1109414100</td>
@@ -414,7 +411,6 @@ ease-in-out"
                               </a>
                             </div>
                           </td>
-                          
                         </tr>
                         <tr>
                           <td>1109414100</td>
@@ -441,7 +437,6 @@ ease-in-out"
                               </a>
                             </div>
                           </td>
-                          
                         </tr>
                         <tr>
                           <td>1109414100</td>
@@ -468,7 +463,6 @@ ease-in-out"
                               </a>
                             </div>
                           </td>
-                          
                         </tr>
                         <tr>
                           <td>1109414100</td>
@@ -495,7 +489,6 @@ ease-in-out"
                               </a>
                             </div>
                           </td>
-                          
                         </tr>
                         <tr>
                           <td>1109414100</td>
@@ -522,7 +515,6 @@ ease-in-out"
                               </a>
                             </div>
                           </td>
-                          
                         </tr>
                         <tr>
                           <td>1109414100</td>
@@ -549,7 +541,6 @@ ease-in-out"
                               </a>
                             </div>
                           </td>
-                          
                         </tr>
                         <tr>
                           <td>1109414100</td>
@@ -576,7 +567,6 @@ ease-in-out"
                               </a>
                             </div>
                           </td>
-                          
                         </tr>
                         <tr>
                           <td>1109414100</td>
@@ -603,7 +593,6 @@ ease-in-out"
                               </a>
                             </div>
                           </td>
-                          
                         </tr>
                         <tr>
                           <td>1109414100</td>
@@ -630,7 +619,6 @@ ease-in-out"
                               </a>
                             </div>
                           </td>
-                          
                         </tr>
                         <tr>
                           <td>1109414100</td>
@@ -657,7 +645,6 @@ ease-in-out"
                               </a>
                             </div>
                           </td>
-                          
                         </tr>
                       </tbody>
                     </table>

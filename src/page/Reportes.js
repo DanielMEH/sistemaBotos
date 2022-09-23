@@ -12,10 +12,10 @@ export const Reportes = () => {
           </div>
 
           <div v class="">
-            <div class="border border-gray-900 rounded mx-2">
+            <div class="border border-gray-200 rounded mx-2">
               <div class="border-2">
                 <div>
-                  <div class="bg-gray-900 text-white  rounded p-2 flex justify-between items-center">
+                  <div class="bg-[#ff8138] text-white  rounded p-2 flex justify-between items-center">
                     <h3>lista de Elecciones</h3>
                   </div>
                 </div>
@@ -51,10 +51,10 @@ export const Reportes = () => {
           </div>
         </section>
         <section>
-          <div class="border border-gray-900 rounded mx-2 mt-2">
+          <div class="border border-gray-200 rounded mx-2 mt-2">
             <div class="border-2">
               <div>
-                <div class="bg-gray-900 text-white  rounded p-2 flex justify-between items-center">
+                <div class="bg-[#ff8138] text-white  rounded p-2 flex justify-between items-center">
                   <h3>Lista de Candidatos</h3>
                 </div>
                 <div class=" mx-2 p-10 ">

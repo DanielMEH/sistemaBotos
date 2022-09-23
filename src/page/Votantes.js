@@ -10,9 +10,9 @@ export const Votantes = () => {
             <h2>Elecciones</h2>
           </div>
 
-          <div class="border border-gray-900 rounded mx-2">
+          <div class="border border-gray-200 rounded mx-2">
             <div class="border-2">
-              <div class="bg-gray-900 text-white  rounded p-2 flex justify-between items-center">
+              <div class="bg-[#ff8138]  text-white  rounded p-2 flex justify-between items-center">
                 <h3>lista de Elecciones</h3>
               </div>
 
@@ -102,17 +102,17 @@ export const Votantes = () => {
               w-full
               px-6
               py-2.5
-              bg-blue-600
+              bg-[#ff8138]
               text-white
               font-medium
-              text-xs
+              text-xl
               leading-tight
-              uppercase
+              Capitalize
               rounded
               shadow-md
-              hover:bg-blue-700 hover:shadow-lg
-              focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
-              active:bg-blue-800 active:shadow-lg
+              hover:bg-[#fd7e14] hover:shadow-lg
+              focus:bg-[#fd7e14] focus:shadow-lg focus:outline-none focus:ring-0
+              active:bg-[#fd7e14] active:shadow-lg
               transition
               duration-150
               ease-in-out"
@@ -166,16 +166,16 @@ export const Votantes = () => {
           </div>
         </section>
         <section>
-          <div class="border border-gray-900 rounded mx-2 mt-2">
+          <div class="border border-gray-200 rounded mx-2 mt-2">
             <div class="border-2">
-              <div class="bg-gray-900 text-white  rounded p-2 flex justify-between items-center">
+              <div class="bg-[#ff8138]  text-white  rounded p-2 flex justify-between items-center">
                 <h3>lista de Elecciones</h3>
                 <div class="modal">
                   <button
                     type="button"
                     class="px-6
 py-2.5
-bg-blue-600
+bg-gray-600
 text-white
 font-medium
 text-xs
@@ -183,9 +183,9 @@ leading-tight
 uppercase
 rounded
 shadow-md
-hover:bg-blue-700 hover:shadow-lg
-focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
-active:bg-blue-800 active:shadow-lg
+hover:bg-gray-700 hover:shadow-lg
+focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0
+active:bg-gray-700 active:shadow-lg
 transition
 duration-150
 ease-in-out"
@@ -305,12 +305,9 @@ ease-in-out"
                 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                     aria-label="Default select example"
                                   >
-                                    <option selected>
-                                      Open this select menu
-                                    </option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option selected>Estado</option>
+                                    <option value="1">Activo</option>
+                                    <option value="2">Inactivo</option>
                                   </select>
                                 </div>
                               </div>
@@ -322,17 +319,17 @@ ease-in-out"
           w-full
           px-6
           py-2.5
-          bg-blue-600
+          bg-[#ff8138]
           text-white
           font-medium
-          text-xs
+          text-xl
           leading-tight
-          uppercase
+           Capitalize
           rounded
           shadow-md
-          hover:bg-blue-700 hover:shadow-lg
-          focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
-          active:bg-blue-800 active:shadow-lg
+          hover:bg-[#fd7e14] hover:shadow-lg
+          focus:bg-[#fd7e14] focus:shadow-lg focus:outline-none focus:ring-0
+          active:bg-[#fd7e14]active:shadow-lg
           transition
           duration-150
           ease-in-out"
