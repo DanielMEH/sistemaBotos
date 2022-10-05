@@ -4,19 +4,19 @@ export const AprendizAuthentic = () => {
   return (
     <>
       <title>Login</title>
-      <div class="login">
-        <div class="block p-6 rounded-lg h-48 shadow-2xl border bg-white max-w-sm absolute inset-0 m-auto">
+      <div className="login">
+        <div className="block p-6 rounded-lg h-48 shadow-2xl border bg-white max-w-sm absolute inset-0 m-auto">
           <form action="/selectEleccion">
-            <div class="form-group mb-6">
+            <div className="form-group mb-6">
               <label
-                for="exampleInputPassword2"
-                class="form-label inline-block mb-2 sm:text-[1.3rem] text-gray-700"
+                htmlFor="exampleInputPassword2"
+                className="form-label inline-block mb-2 sm:text-[1.3rem] text-gray-700"
               >
                 Ingresar numero de documento
               </label>
               <input
                 type="number"
-                class="form-control block
+                className="form-control block
                   w-full
                   px-3
                   py-2
@@ -36,7 +36,7 @@ export const AprendizAuthentic = () => {
             </div>
             <button
               type="submit"
-              class="
+              className="
                 w-full
                 px-6
                 py-2.5

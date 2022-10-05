@@ -170,7 +170,7 @@ export const Votantes = () => {
             <div class="border-2">
               <div class="bg-[#ff8138]  text-white  rounded p-2 flex justify-between items-center">
                 <h3>lista de Elecciones</h3>
-                <div class="modal">
+                <div class="">
                   <button
                     type="button"
                     class="px-6

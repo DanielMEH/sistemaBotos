@@ -56,7 +56,7 @@ export const Candidatos = () => {
               <div>
                 <div class="bg-[#ff8138]  text-white  rounded p-2 flex justify-between items-center">
                   <h3>lista de candidatos</h3>
-                  <div class="modal">
+                  <div class="">
                     <button
                       type="button"
                       class="px-6

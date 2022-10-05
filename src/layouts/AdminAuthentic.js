@@ -1,24 +1,26 @@
 import React from "react";
 
+
 export const Admin = () => {
+
   return (
     <>
-      <div class="login bg-slate-900">
-        <div class="block p-6 rounded-lg h-fit border shadow-2xl bg-white max-w-sm absolute inset-0 m-auto">
-          <form action="/dasboard">
-            <h2 class="text-center text-2xl font-semibold mb-2">
+      <div className="login bg-slate-900">
+        <div className="block p-6 rounded-lg h-fit border shadow-2xl bg-white max-w-sm absolute inset-0 m-auto">
+          <form>
+            <h2 className="text-center text-2xl font-semibold mb-2">
               Iniciar Sesión
             </h2>
             <div class="form-group mb-6">
               <label
-                for="exampleInputEmail2"
-                class="form-label mt-1 text-xl inline-block mb-2 text-gray-700"
+                htmlFor="exampleInputEmail2"
+                className="form-label mt-1 text-xl inline-block mb-2 text-gray-700"
               >
                 Correo electronico
               </label>
               <input
                 type="email"
-                class="form-control
+                className="form-control
                   block
                   w-full
                   px-3
@@ -36,18 +38,19 @@ export const Admin = () => {
                 id="exampleInputEmail2"
                 aria-describedby="emailHelp"
                 placeholder="Email"
+                name="correo"
               />
             </div>
-            <div class="form-group mb-6">
+            <div className="form-group mb-6">
               <label
-                for="exampleInputPassword2"
-                class="form-label inline-block mt-1 text-xl mb-2 text-gray-700"
+                htmlFor="exampleInputPassword2"
+                className="form-label inline-block mt-1 text-xl mb-2 text-gray-700"
               >
                 Ingresar Contraseña
               </label>
               <input
                 type="password"
-                class="form-control block
+                className="form-control block
                   w-full
                   px-3
                   py-3
@@ -63,19 +66,20 @@ export const Admin = () => {
                   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                 id="exampleInputPassword2"
                 placeholder="Contraseña"
+                name="password"
               />
             </div>
-            <div class="flex justify-between items-center mb-6">
+            <div className="flex justify-between items-center mb-6">
               <a
                 href="#!"
-                class="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out"
+                className="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out"
               >
                 Olvidate tu contraseña?
               </a>
             </div>
             <button
               type="submit"
-              class="
+              className="
                w-full
           px-6
           py-2.5
@@ -96,15 +100,15 @@ export const Admin = () => {
             >
               Iniciar sesión
             </button>
-            <p class="text-gray-800 mt-6 text-center">
-              No tienes cuenta?{" "}
+            {/* <p class="text-gray-800 mt-6 text-center">
+              No tienes cuenta?{" Inicia session "}
               <a
                 href="#!"
                 class="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out"
               >
                 Registrarse
               </a>
-            </p>
+            </p> */}
           </form>
         </div>
       </div>

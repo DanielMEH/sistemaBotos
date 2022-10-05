@@ -1,7 +1,4 @@
-import  Axios  from "axios"
+import Axios from "axios";
 
-export const LoginInsert = async ({data})=> await Axios.post("/loginUsuario",{
-    body:data,
-    header: { "Content-type": "application/x-www-form-urlencoded" }
-    
-})
+export const getPostRequestData = async () =>
+  await Axios.get("http://localhost:3002/electionsView");

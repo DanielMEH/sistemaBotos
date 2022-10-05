@@ -1,6 +1,16 @@
 import React from "react";
 import { Header } from "../components/Header";
+import { usePost } from "../hooks/context/ElecctionsContext";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
 export const Elecciones = () => {
+  const { postAdmin } = usePost();
+
   return (
     <>
       <Header />
@@ -8,13 +18,13 @@ export const Elecciones = () => {
         <div className="bg-gray-200 mx-2 my-5 p-2 rounded">
           <h2>Elecciones</h2>
         </div>
-        <div class="border border-gray-200 rounded mx-2">
-          <div class="bg-[#ff8138]  text-white  rounded p-2 flex justify-between items-center">
-            <h3>lista de Elecciones</h3>
-            <div class="modal">
+        <div className="border border-gray-200 rounded mx-2 ">
+          <div className="bg-[#ff8138]  text-white  rounded p-2 mb-2 flex justify-between items-center">
+            <h3>lista de Elecciones </h3>
+            <div className="">
               <button
                 type="button"
-                class="px-6
+                className="px-6
 py-2.5
 bg-gray-200
 text-black
@@ -35,30 +45,29 @@ ease-in-out"
               >
                 Agregar nuevo
               </button>
-
               <div
-                class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+                className="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
                 id="exampleModal"
                 tabindex="-1"
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
               >
-                <div class="modal-dialog relative w-auto pointer-events-none">
-                  <div class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
-                    <div class="modal-header flex flex-col flex-shrink-0 items-center justify-center p-4 border-b border-gray-200 rounded-t-md">
+                <div className="modal-dialog relative w-auto pointer-events-none">
+                  <div className="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+                    <div className="modal-header flex flex-col flex-shrink-0 items-center justify-center p-4 border-b border-gray-200 rounded-t-md">
                       <h5
                         class="text-xl font-medium leading-normal text-gray-800"
                         id="exampleModalLabel"
                       >
                         Ingresar Datos
                       </h5>
-                      <div class="block p-6 rounded-lg  bg-white max-w-md">
+                      <div className="block p-6 rounded-lg  bg-white max-w-md">
                         <form>
-                          <div class="grid grid-cols-2 gap-4">
-                            <div class="form-group mb-6">
+                          <div className="grid grid-cols-2 gap-4">
+                            <div className="form-group mb-6">
                               <input
                                 type="text"
-                                class="form-control
+                                className="form-control
           block
           w-full
           px-3
@@ -78,10 +87,10 @@ ease-in-out"
                                 placeholder="Descripción"
                               />
                             </div>
-                            <div class="form-group mb-6">
+                            <div className="form-group mb-6">
                               <input
                                 type="text"
-                                class="form-control
+                                className="form-control
           block
           w-full
           px-3
@@ -103,9 +112,9 @@ ease-in-out"
                             </div>
                           </div>
 
-                          <div class="form-group mb-6">
+                          <div className="form-group mb-6">
                             <select
-                              class="form-select appearance-none
+                              className="form-select appearance-none
     block
     w-full
     px-3
@@ -123,14 +132,14 @@ ease-in-out"
                               aria-label="Default select example"
                             >
                               <option selected>Seleccionar</option>
-                              <option value="1">Activo</option>
-                              <option value="2">Inactivo</option>
+                              <option defaultValue="1">Activo</option>
+                              <option defaultValue="2">Inactivo</option>
                             </select>
                           </div>
 
                           <button
                             type="submit"
-                            class="
+                            className="
      
           w-full
           px-6
@@ -156,15 +165,15 @@ ease-in-out"
                       </div>
                       <button
                         type="button"
-                        class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+                        className="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
                         data-bs-dismiss="modal"
                         aria-label="Close"
                       ></button>
                     </div>
-                    <div class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
+                    <div className="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
                       <button
                         type="button"
-                        class="px-6
+                        className="px-6
   py-2.5
   bg-red-600
   text-white
@@ -188,70 +197,47 @@ ease-in-out"
               </div>
             </div>
           </div>
-          <div class=" mx-2 p-10 ">
-            <div class="">
+          <div clasName=" mx-2 p-10 ">
+            <div clasName="">
               <table
                 id="table_id"
-                class="ui celled table table-striped table-bordered responsive nowrap unstackable "
+                className="ui celled table table-striped table-bordered responsive nowrap unstackable "
                 style={{ width: "100%" }}
               >
-                <thead class="bg-white border-b">
+                <thead className="bg-white border-b">
                   <tr>
                     <th>Descripción</th>
                     <th>Cargo</th>
-                    <th>Fecha de registro</th>
-                    <th>Numero de participantes</th>
+
                     <th>Estado</th>
                     <th>Ajustes</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Aprendiz participa para la execelencia</td>
-                    <td>Responsable de las acciones</td>
-                    <td>20/09/2022</td>
-                    <td>3</td>
-                    <td>Inactivo</td>
-                    <td>
-                      <div class="btn">
-                        <a
-                          class="bg-gray-600 text-white rounded p-2 m-1"
-                          href="/edit"
-                        >
-                          Editar
-                        </a>
-                        <a
-                          class="bg-red-600 text-white p-2 rounded"
-                          href="/delete"
-                        >
-                          Eliminar
-                        </a>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Aprendiz participa para la execelencia</td>
-                    <td>Responsable de las acciones</td>
-                    <td>20/09/2022</td>
-                    <td>5</td>
-                    <td>Activo</td>
-                    <td>
-                      <div class="btn">
-                        <a
-                          class="bg-gray-600 text-white rounded p-2 m-1"
-                          href="/edit"
-                        >
-                          Editar
-                        </a>
-                        <a
-                          class="bg-red-600 text-white p-2 rounded"
-                          href="/delete"
-                        >
-                          Eliminar
-                        </a>
-                      </div>
-                    </td>
-                  </tr>
+                  {postAdmin.map((postAdmi) => (
+                    <tr>
+                      <td>{postAdmi.descripcion}</td>
+                      <td>{postAdmi.cargo}</td>
+
+                      <td>{postAdmi.estado}</td>
+                      <td>
+                        <div className="btn">
+                          <a
+                            className="bg-gray-600 text-white rounded p-2 m-1"
+                            href="/edit"
+                          >
+                            Editar
+                          </a>
+                          <a
+                            className="bg-red-600 text-white p-2 rounded"
+                            href="/delete"
+                          >
+                            Eliminar
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
