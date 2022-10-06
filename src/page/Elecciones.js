@@ -1,15 +1,8 @@
 import React from "react";
 import { Header } from "../components/Header";
-import { usePost } from "../hooks/context/ElecctionsContext";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
+import { DataTableE } from "../components/DataTableE";
 export const Elecciones = () => {
-  const { postAdmin } = usePost();
+
 
   return (
     <>
@@ -199,47 +192,7 @@ ease-in-out"
           </div>
           <div clasName=" mx-2 p-10 ">
             <div clasName="">
-              <table
-                id="table_id"
-                className="ui celled table table-striped table-bordered responsive nowrap unstackable "
-                style={{ width: "100%" }}
-              >
-                <thead className="bg-white border-b">
-                  <tr>
-                    <th>Descripción</th>
-                    <th>Cargo</th>
-
-                    <th>Estado</th>
-                    <th>Ajustes</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {postAdmin.map((postAdmi) => (
-                    <tr>
-                      <td>{postAdmi.descripcion}</td>
-                      <td>{postAdmi.cargo}</td>
-
-                      <td>{postAdmi.estado}</td>
-                      <td>
-                        <div className="btn">
-                          <a
-                            className="bg-gray-600 text-white rounded p-2 m-1"
-                            href="/edit"
-                          >
-                            Editar
-                          </a>
-                          <a
-                            className="bg-red-600 text-white p-2 rounded"
-                            href="/delete"
-                          >
-                            Eliminar
-                          </a>
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+              <DataTableE />
             </div>
           </div>
         </div>
