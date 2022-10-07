@@ -12,20 +12,22 @@ import { RecoveryPassword } from "../layouts/RecoveryPassword";
 import { Route, Routes } from "react-router-dom";
 import { CandidatoVotar } from "../layouts/CandidatoVotar";
 import { Select } from "../layouts/Select";
+import { Navigate } from "react-router-dom";
 const Router = () => {
   return (
     <ElecctionsContext>
       <Routes>
+        <Route path="/AdminAuttentiacion" element={<Admin />} />
+        <Route path="/recoveryPasswordAdmin" element={<RecoveryPassword />} />
+        <Route path="/" element={<AprendizAuthentic />} />
         <Route path="/dasboard/*" element={<Dasboard />} />
         <Route path="/elecciones" element={<Elecciones />} />
         <Route path="/candidatos" element={<Candidatos />} />
         <Route path="/votantes" element={<Votantes />} />
         <Route path="/reportes" element={<Reportes />} />
-        <Route path="/AdminAuttentiacion" element={<Admin />} />
         <Route path="/CandidatoVotar" element={<CandidatoVotar />} />
-        <Route path="/recoveryPasswordAdmin" element={<RecoveryPassword />} />
-        <Route path="/" element={<AprendizAuthentic />} />
-        <Route path="/selectEleccion" element={<Select />} />
+        <Route path="/selectEleccion/:id" element={<Select />} />
+        <Route path="/selectEleccion/:id" element={Navigate} />
         {/* <Route path="/" element={<Login />} />
       <Route path="/User/:id" element={<Login />} />
       <Route path="/count/User" element={<Login />} />

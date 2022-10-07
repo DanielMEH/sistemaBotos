@@ -1,22 +1,63 @@
-import React from "react";
-
+import React, { useState } from "react";
+import { Form, useNavigate } from "react-router-dom";
+import Axios from "axios";
+import Swal from "sweetalert2";
 export const AprendizAuthentic = () => {
+  const [setData, setfirst] = useState(null);
+
+  const navegate = useNavigate();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const documento = e.target.documento.value;
+    const result = await Axios.post("http://localhost:3002/votantesView", {
+      documento: documento,
+    });
+    if (result.data.message === "SUCCESFULL_VIEW") {
+      await Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "El documento fue correcto",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+
+      navegate("/selectEleccion/" + documento);
+    } else if (result.data.message === "ERROR_NOT_EXIXT") {
+      await Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "El documento no es valido",
+        footer: "<p>Verifica que estes registrado en la plataforma</p>",
+      });
+    }
+  };
   return (
     <>
-      <title>Login</title>
-      <div className="login">
-        <div className="block p-6 rounded-lg h-48 shadow-2xl border bg-white max-w-sm absolute inset-0 m-auto">
-          <form action="/selectEleccion">
-            <div className="form-group mb-6">
-              <label
-                htmlFor="exampleInputPassword2"
-                className="form-label inline-block mb-2 sm:text-[1.3rem] text-gray-700"
-              >
-                Ingresar numero de documento
-              </label>
-              <input
-                type="number"
-                className="form-control block
+      <div className="container mx-auto  ">
+        <div className="flex justify-center px-6  absolute inset-0 m-auto  h-fit ">
+          <div className="w-full xl:w-2/4 lg:w-11/12 flex flex-col sm:flex-row shadow-xl border rounded-xl overflow-hidden">
+            <div className="w-full h-auto bg-[#ff8138]  lg:block lg:w-1/2 bg-cover rounded-l-lg">
+              <div className="px-8 mb-4 text-center">
+                <h3 className="pt-4 mb-2 text-3xl text-white">Evento 1</h3>
+                <p className="mb-2 text-xl text-white">
+                  Al momento de votar por su candidato no podra volver a votar.
+                  asegurate de de elegir bien.
+                </p>
+              </div>
+            </div>
+
+            <div className="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
+              <form onSubmit={handleSubmit}>
+                <div className="form-group mb-6">
+                  <label
+                    htmlFor="exampleInputPassword2"
+                    className="form-label inline-block mb-2 sm:text-[1.3rem] text-gray-700"
+                  >
+                    Ingresar numero de documento:
+                  </label>
+                  <input
+                    type="number"
+                    className="form-control block
                   w-full
                   px-3
                   py-2
@@ -30,13 +71,14 @@ export const AprendizAuthentic = () => {
                   ease-in-out
                   m-0
                   focus:text-gray-700 focus:bg-white focus:border-[#fd7e14] focus:outline-none"
-                id="exampleInputPassword2"
-                placeholder="Documento"
-              />
-            </div>
-            <button
-              type="submit"
-              className="
+                    id="exampleInputPassword2"
+                    placeholder="Documento"
+                    name="documento"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="
                 w-full
                 px-6
                 py-2.5
@@ -54,10 +96,12 @@ export const AprendizAuthentic = () => {
                 transition
                 duration-150
                 ease-in-out"
-            >
-              Ingresar
-            </button>
-          </form>
+                >
+                  Ingresar
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </>

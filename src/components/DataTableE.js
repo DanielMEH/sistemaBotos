@@ -3,8 +3,6 @@ import MUIDataTable from "mui-datatables";
 
 export const DataTableE = () => {
   const { postAdmin } = usePost();
-  console.log(postAdmin);
-
   console.log(usePost());
   const columns = [
     {
