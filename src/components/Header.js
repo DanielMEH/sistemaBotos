@@ -5,8 +5,13 @@ import {
   faBars,
   faArrowRightToBracket,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link, NavLink,  } from "react-router-dom";
+import { Link, NavLink, useNavigate  } from "react-router-dom";
 export const Header = () => {
+
+  const navegate = useNavigate()
+  const handleSession = ()=>{
+    navegate("/logout")
+  }
   return (
     <>
       <header>
@@ -150,12 +155,13 @@ export const Header = () => {
                   </a>
                 </li>
                 <li>
-                  <a
-                    className="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                  <span
+                  onClick={handleSession}
+                    className="cursor-pointer dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
                     href="#"
                   >
                     Cerrar Sesión
-                  </a>
+                  </span>
                 </li>
               </ul>
             </div>

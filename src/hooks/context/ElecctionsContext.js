@@ -13,8 +13,9 @@ export const ElecctionsContext = ({ children }) => {
   const getPostRequest = async () => {
     const res = await getPostRequestData();
     setPostAdmin(res.data.data);
-    console.log(res);
   };
+
+  
 
   useEffect(() => {
     getPostRequest();

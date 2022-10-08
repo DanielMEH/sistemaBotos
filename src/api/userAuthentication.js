@@ -7,3 +7,5 @@ export const getPostRequestData = async () =>
 
 export const getAprendiz = async (id) =>
   await Axios.get("http://localhost:3002/votantesView/" + id);
+
+  

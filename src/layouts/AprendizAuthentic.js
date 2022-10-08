@@ -29,6 +29,13 @@ export const AprendizAuthentic = () => {
         text: "El documento no es valido",
         footer: "<p>Verifica que estes registrado en la plataforma</p>",
       });
+    } else if (result.data.message === "USER_IS_INACTIVE"){
+      await Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Ya votaste",
+        footer: `<p>Estado de error ${result.data.message} </p>`,
+      });
     }
   };
   return (
@@ -105,5 +112,6 @@ export const AprendizAuthentic = () => {
         </div>
       </div>
     </>
+  
   );
 };
