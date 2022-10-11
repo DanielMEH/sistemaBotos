@@ -10,14 +10,14 @@ export const Admin = () => {
     const correo = e.target.correo.value;
     const password = e.target.password.value;
     const formPost = {
-      correo: correo,
-      password: password
+     correo,
+     password
     }
     if (cuenta) {
       const response = await  Axios.post("http://localhost:3002/login",formPost);
-       console.log(response);
-     console.log(response);
-     if (response.data.message === "SUCCESFULUSER") {
+    
+      if (response.status === 200) {
+       console.log( response);
       let timerInterval
  await Swal.fire({
   title: 'Espera un momento',
@@ -40,7 +40,7 @@ export const Admin = () => {
     console.log('I was closed by the timer')
   }
 })
-   navegate("/dasboards")
+  navegate("/dasboards")
      }else if(response.data.message === "EROORUSER"){
       await Swal.fire({ 
         icon: "error",

@@ -8,7 +8,7 @@ export const UserState = async({data}) => {
         documento: null,
         selectUser: null
     };
-  const [state, dispatch] = useReducer(firstd, initialData);
+  const [state, dispatch] = useReducer([]);
 
   const res = await LoginInsert(data)
 
