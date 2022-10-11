@@ -26,7 +26,6 @@ export const CandidatoVotar = () => {
       });
     }
 
-      console.log(response.data.data);
       return setCandidatosGet(response.data.data);
     
   }

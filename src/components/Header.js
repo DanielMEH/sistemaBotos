@@ -1,17 +1,17 @@
 import React from "react";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
   faArrowRightToBracket,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link, NavLink, useNavigate  } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 export const Header = () => {
+  
 
-  const navegate = useNavigate()
-  const handleSession = ()=>{
-    navegate("/logout")
-  }
+  const navegate = useNavigate();
+  const handleSession = () => {
+    navegate("/logout");
+  };
   return (
     <>
       <header>
@@ -139,7 +139,9 @@ export const Header = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                <span className="mr-1 text-2xl hover:text-black">Cerrar Sesión </span>
+                <span className="mr-1 text-2xl hover:text-black">
+                  Cerrar Sesión{" "}
+                </span>
                 <FontAwesomeIcon icon={faArrowRightToBracket} />
               </a>
               <ul
@@ -156,7 +158,7 @@ export const Header = () => {
                 </li>
                 <li>
                   <span
-                  onClick={handleSession}
+                    onClick={handleSession}
                     className="cursor-pointer dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
                     href="#"
                   >

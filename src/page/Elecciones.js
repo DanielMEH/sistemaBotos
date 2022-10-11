@@ -1,9 +1,76 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Header } from "../components/Header";
 import { DataTableE } from "../components/DataTableE";
+import Axios from "axios";
+import Swal from "sweetalert2";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import moment from "moment-with-locales-es6";
 export const Elecciones = () => {
+  const [eleccionGet, setEleccionGet] = useState([]);
+  const getElection = async () => {
+    const response = await Axios.get("http://localhost:3002/electionsView");
+    setEleccionGet(response.data.data);
+  };
+  const handlesubmit = async (e) => {
 
+    e.preventDefault();
+    const descripcion = e.target.descripcion.value;
+    const cargo = e.target.cargo.value;
+    const estado = e.target.estado.value;
+    const formData = {
+      descripcion,
+      cargo,
+      estado,
+    };
+    const responseForm = await Axios.post(
+      "http://localhost:3002/createElection",
+      formData
+    );
+    console.log(responseForm);
+    if (responseForm.data.data === "INSERTELLECCION") {
+      let timerInterval;
+      await Swal.fire({
+        title: "Espera un momento",
+        html: "<b></b>...",
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+          const b = Swal.getHtmlContainer().querySelector("b");
+          timerInterval = setInterval(() => {
+            b.textContent = Swal.getTimerLeft();
+          }, 100);
+        },
+        willClose: () => {
+          clearInterval(timerInterval);
+        },
+      }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+          console.log("I was closed by the timer");
+        }
+      });
+      await Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Registro creado",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    } else if (responseForm.data.data === "ERRDATA") {
+      await Swal.fire({
+        icon: "error",
+        title: "Hubo un error",
+        text: "No se pudo crear el registro intenta de nuevo",
+      });
+    }
+  };
 
+  useEffect(() => {
+    getElection();
+  }, []);
+
+  moment.locale("es");
   return (
     <>
       <Header />
@@ -55,7 +122,7 @@ ease-in-out"
                         Ingresar Datos
                       </h5>
                       <div className="block p-6 rounded-lg  bg-white max-w-md">
-                        <form>
+                        <form onSubmit={handlesubmit}>
                           <div className="grid grid-cols-2 gap-4">
                             <div className="form-group mb-6">
                               <input
@@ -78,6 +145,7 @@ ease-in-out"
                                 id="exampleInput123"
                                 aria-describedby="emailHelp123"
                                 placeholder="Descripción"
+                                name="descripcion"
                               />
                             </div>
                             <div className="form-group mb-6">
@@ -101,6 +169,7 @@ ease-in-out"
                                 id="exampleInput124"
                                 aria-describedby="emailHelp124"
                                 placeholder="Cargo"
+                                name="cargo"
                               />
                             </div>
                           </div>
@@ -123,10 +192,11 @@ ease-in-out"
     m-0
     focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                               aria-label="Default select example"
+                              name="estado"
                             >
                               <option selected>Seleccionar</option>
-                              <option defaultValue="1">Activo</option>
-                              <option defaultValue="2">Inactivo</option>
+                              <option defaultValue="Activo">Activo</option>
+                              <option defaultValue="Inactivo">Inactivo</option>
                             </select>
                           </div>
 
@@ -192,7 +262,99 @@ ease-in-out"
           </div>
           <div clasName=" mx-2 p-10 ">
             <div clasName="">
-              <DataTableE />
+              <section className="">
+                <div className="flex flex-col justify-center h-full">
+                  <div className="  bg-white shadow-lg rounded-sm border border-gray-200">
+                    <div className="">
+                      <div className="overflow-x-auto">
+                        <table className="table-auto w-full">
+                          <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+                            <tr>
+                              <th className="p-2 whitespace-nowrap">
+                                <div className="font-semibold text-left">
+                                  id
+                                </div>
+                              </th>
+                              <th className="p-2 whitespace-nowrap">
+                                <div className="font-semibold text-left">
+                                  Descripcion
+                                </div>
+                              </th>
+                              <th className="p-2 whitespace-nowrap">
+                                <div className="font-semibold text-left">
+                                  Cargo
+                                </div>
+                              </th>
+                              <th className="p-2 whitespace-nowrap">
+                                <div className="font-semibold text-center">
+                                  Estado
+                                </div>
+                              </th>
+                              <th className="p-2 whitespace-nowrap">
+                                <div className="font-semibold text-center">
+                                  se publico hace
+                                </div>
+                              </th>
+                              <th className="p-2 whitespace-nowrap">
+                                <div className="font-semibold text-center">
+                                  Ajustes
+                                </div>
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody className="text-sm divide-y divide-gray-100">
+                            {eleccionGet.map((data) => (
+                              <tr key={data.idEleccion}>
+                                <td className="p-2 whitespace-nowrap">
+                                  <div className="flex items-center">
+                                    <div className="font-medium text-gray-800">
+                                      {data.idEleccion}
+                                    </div>
+                                  </div>
+                                </td>
+                                <td className="p-2 whitespace-nowrap">
+                                  <div className="text-left">
+                                    {data.descripcion}
+                                  </div>
+                                </td>
+                                <td className="p-2 whitespace-nowrap">
+                                  <div className="text-left font-medium ">
+                                    {data.cargo}
+                                  </div>
+                                </td>
+                                <td className="p-2 whitespace-nowrap">
+                                  <div className="text-lg text-center">
+                                    {data.estado}
+                                  </div>
+                                </td>
+                                <td className="p-2 whitespace-nowrap">
+                                  <div className="text-lg text-center">
+                                    {moment(data.fecha).fromNow()}
+                                  </div>
+                                </td>
+                                <td className="p-2 whitespace-nowrap flex justify-center">
+                                  <Link
+                                    to={"/editar/" + data.idEleccion}
+                                    className=" text-white p-1 px-3  bg-green-500"
+                                  >
+                                    Editar
+                                  </Link>
+                                  <Link
+                                    to={"/Eliminar/" + data.idEleccion}
+                                    className="text-white p-1 px-3 mx-2  bg-red-500"
+                                  >
+                                    Editar
+                                  </Link>
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
             </div>
           </div>
         </div>

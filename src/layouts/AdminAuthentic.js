@@ -15,7 +15,7 @@ export const Admin = () => {
     }
     if (cuenta) {
       const response = await  Axios.post("http://localhost:3002/login",formPost);
-       
+       console.log(response);
      console.log(response);
      if (response.data.message === "SUCCESFULUSER") {
       let timerInterval
@@ -49,7 +49,8 @@ export const Admin = () => {
         footer: "<p>Intenta de nuevo</p>",
       });
 
-     }
+      }
+      
     }else{
      
      const response = await  Axios.post("http://localhost:3002/signup",formPost);

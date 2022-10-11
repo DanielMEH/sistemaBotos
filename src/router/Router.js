@@ -24,13 +24,18 @@ const Router = () => {
         <Route path="/dasboard/*" element={<Dasboard />} />
         <Route path="/dasboards" element={<Navigate to="/dasboard" />} />
         <Route path="/logout" element={<Navigate to="/AdminAuttentiacion" />} />
+        <Route path="/cerrCuenta" element={<Navigate to="/" />} />
         <Route path="/elecciones" element={<Elecciones />} />
         <Route path="/candidatos" element={<Candidatos />} />
         <Route path="/votantes" element={<Votantes />} />
         <Route path="/reportes" element={<Reportes />} />
         <Route path="/CandidatoVotar/:id/:idk" element={<CandidatoVotar />} />
         <Route path="/selectEleccion/:id" element={<Select />} />
-        <Route path="/votar/:idk/:documento1" element={<Votar/>} />
+        <Route path="/votar/:idk/:documento1" element={<Votar />} />
+        <Route
+          path="/eleccion"
+          element={<Navigate to="/selectEleccion/:id" />}
+        />
         {/* <Route path="/" element={<Login />} />
       <Route path="/User/:id" element={<Login />} />
       <Route path="/count/User" element={<Login />} />
