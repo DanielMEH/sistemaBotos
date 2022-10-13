@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "..\\.."
+		},
+		{
+			"path": "..\\..\\..\\sisTemBB"
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5501
+	}
+}

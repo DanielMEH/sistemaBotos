@@ -21,7 +21,7 @@ export const Admin = () => {
       let timerInterval
  await Swal.fire({
   title: 'Espera un momento',
-  html: 'Cargando.. <b></b> Segundos',
+  html: 'Cargando.. <b></b> Se  gundos',
   timer: 2000,
   timerProgressBar: true,
   didOpen: () => {

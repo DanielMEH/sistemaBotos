@@ -21,7 +21,7 @@ export const Votar = () => {
   console.log("iddocumento", idk, "idEleccion", id);
   const [candidato, setCandidato] = useState([]);
   const eventFunction = async () => {
-    const response = await Axios.get(
+    const response = await Axios.get( 
       "http://localhost:3002/candidatosvista/" + parseInt(id)
     );
     if (response.data.data === "ERROR_VIEW_VOTANTES") {
