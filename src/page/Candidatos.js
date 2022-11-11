@@ -1,11 +1,59 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import { Header } from "../components/Header";
+import {DataTableC} from "../components/DataTableC"
+import Axios from 'axios';
+import Swal from "sweetalert2";
 
 export const Candidatos = () => {
+  const [Elecciones, setElecciones] = useState([]);
+  const [Image, setImage] = useState([]);
+  const consult = async ()=>{
+    const datos = await Axios.get("http://localhost:3002/electionsView")
+    setElecciones(datos.data.data)
+    console.log(datos);
+
+  }
+  const handleSubmit = async (e)=>{
+    e.preventDefault();
+    const newPostCandidato ={
+        documento:e.target.documento.value,
+        nombreCandidato:e.target.nombre.value,
+        programaFormacion:e.target.programaFormacion.value,
+        fichaPrograma:e.target.numeroFicha.value,
+        estado:e.target.estado.value,
+        imagen:Image,
+        id:e.target.options.value
+    }
+  const response = await Axios.post("http://localhost:3002/postCandidato",newPostCandidato,{
+    
+  headers:{
+    
+    'Content-Type':'multipart/form-data'
+    }
+  })
+  
+  .then((response)=>{
+   if(response.data.message === "POSTCANDIDATO"){
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Candidato Registrado',
+    })
+    window.location.href = "/candidatos"
+   }
+  })
+  .catch((error)=>{
+    console.log(error);
+  })
+  }
+   
+  
+  useEffect(()=>{
+ consult();
+  },[])
   return (
     <>
       <Header />
-
       <main>
         <section>
           <div class="bg-gray-200 mx-2 my-5 p-2 rounded">
@@ -98,7 +146,7 @@ ease-in-out"
                               Ingresar Datos
                             </h5>
                             <div class="block p-6 rounded-lg  bg-white max-w-md">
-                              <form>
+                              <form onSubmit={handleSubmit}>
                                 <div class="mb-3 w-96">
                                   <label
                                     for="formFile"
@@ -106,7 +154,11 @@ ease-in-out"
                                   >
                                     Foto
                                   </label>
-                                  <input
+                                  <input onChange={
+                                    (e)=>{
+                                      setImage(e.target.files[0]);
+                                    }
+                                  }
                                     class="form-control
             block
             w-full
@@ -122,6 +174,7 @@ ease-in-out"
             ease-in-out
             m-0
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            name="imagen"
                                     type="file"
                                     id="formFile"
                                   />
@@ -143,6 +196,7 @@ ease-in-out"
             ease-in-out
             mt-2
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            name="documento"
                                     id="exampleInput7"
                                     placeholder="Documento"
                                   />
@@ -162,6 +216,7 @@ ease-in-out"
             ease-in-out
             mt-2
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            name="nombre"
                                     id="exampleInput7"
                                     placeholder="Nombres Completo y apellidos"
                                   />
@@ -182,6 +237,7 @@ ease-in-out"
             ease-in-out
             mt-2
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            name="programaFormacion"
                                     id="exampleInput7"
                                     placeholder="Programa de Formacion"
                                   />
@@ -201,6 +257,7 @@ ease-in-out"
             ease-in-out
             mt-2
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            name="numeroFicha"
                                     id="exampleInput7"
                                     placeholder="Numero de la ficha"
                                   />
@@ -223,7 +280,9 @@ ease-in-out"
             ease-in-out
             m-0
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+            
           "
+          name="descripcion"
                                     id="exampleFormControlTextarea13"
                                     rows="3"
                                     placeholder="Descripción"
@@ -247,6 +306,7 @@ ease-in-out"
                 ease-in-out
                 m-0
                 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                name="estado"
                                       aria-label="Default select example"
                                     >
                                       <option selected>
@@ -254,6 +314,34 @@ ease-in-out"
                                       </option>
                                       <option value="1">Activo</option>
                                       <option value="2">Inactivo</option>
+                                    </select>
+                                    <select
+                                      class="form-select appearance-none
+                block
+                w-full
+                px-3
+                py-1.5
+                mt-3
+                text-base
+                font-normal
+                text-gray-700
+                bg-white bg-clip-padding bg-no-repeat
+                border border-solid border-gray-300
+                rounded
+                transition
+                ease-in-out
+                m-0
+                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                name="options"
+                                      aria-label="Default select example"
+                                    >
+                                      <option selected>
+                                        Selecionar Eleccion
+                                      </option>
+                                      {Elecciones.map(i=>(
+                                      <option value={i.idEleccion}>{i.descripcion}</option>
+                                      )
+                                      )}
                                     </select>
                                   </div>
                                 </div>
@@ -314,340 +402,7 @@ ease-in-out"
                 </div>
                 <div class=" mx-2 p-10 ">
                   <div class="">
-                    <table
-                      id="table_id"
-                      class="ui celled table responsive nowrap unstackable "
-                      style={{ width: "100%" }}
-                    >
-                      <thead class="bg-white border-b">
-                        <tr>
-                          <th >Documentos</th>
-                          <th>Foto</th>
-                          <th>Nombres y apellidos</th>
-                          <th>Programa de formación</th>
-                          <th>Numero de la ficha</th>
-                          <th>Descripción</th>
-                          <th>Estado</th>
-                          <th>Fecha de registro</th>
-                          <th>Ajustes</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>1005090349</td>
-                          <td>Foto #1</td>
-                          <td>Juan Daniel </td>
-                          <td>Adsi</td>
-                          <td>2469181</td>
-                          <td>Excelencia</td>
-                          <td>Inactivo</td>
-                          <td>12-04-2022</td>
-
-                          <td>
-                            <div class="btn">
-                              <a
-                                class="bg-gray-600 text-white rounded p-2 m-1"
-                                href="/edit"
-                              >
-                                Editar
-                              </a>
-                              <a
-                                class="bg-red-600 text-white p-2 rounded m-1"
-                                href="/delete"
-                              >
-                                Eliminar
-                              </a>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>1109414100</td>
-                          <td>Foto #1</td>
-                          <td>Juan Daniel Opina O</td>
-                          <td>Gestión Empresarial</td>
-                          <td>1125634</td>
-                          <td>Exelencia</td>
-                          <td>Inactivo</td>
-                          <td>12-04-2022</td>
-                          <td>
-                            <div class="btn">
-                              <a
-                                class="bg-gray-600 text-white rounded p-2 m-1"
-                                href="/edit"
-                              >
-                                Editar
-                              </a>
-                              <a
-                                class="bg-red-600 text-white p-2 rounded m-1"
-                                href="/delete"
-                              >
-                                Eliminar
-                              </a>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>1109414100</td>
-                          <td>Foto #1</td>
-                          <td>Juan Daniel Opina O</td>
-                          <td>Gestión Empresarial</td>
-                          <td>1125634</td>
-                          <td>Exelencia</td>
-                          <td>Inactivo</td>
-                          <td>12-04-2022</td>
-                          <td>
-                            <div class="btn">
-                              <a
-                                class="bg-gray-600 text-white rounded p-2 m-1"
-                                href="/edit"
-                              >
-                                Editar
-                              </a>
-                              <a
-                                class="bg-red-600 text-white p-2 rounded m-1"
-                                href="/delete"
-                              >
-                                Eliminar
-                              </a>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>1109414100</td>
-                          <td>Foto #1</td>
-                          <td>Juan Daniel Opina O</td>
-                          <td>Gestión Empresarial</td>
-                          <td>1125634</td>
-                          <td>Exelencia</td>
-                          <td>Inactivo</td>
-                          <td>12-04-2022</td>
-                          <td>
-                            <div class="btn">
-                              <a
-                                class="bg-gray-600 text-white rounded p-2 m-1"
-                                href="/edit"
-                              >
-                                Editar
-                              </a>
-                              <a
-                                class="bg-red-600 text-white p-2 rounded m-1"
-                                href="/delete"
-                              >
-                                Eliminar
-                              </a>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>1109414100</td>
-                          <td>Foto #1</td>
-                          <td>Juan Daniel Opina O</td>
-                          <td>Gestión Empresarial</td>
-                          <td>1125634</td>
-                          <td>Exelencia</td>
-                          <td>Inactivo</td>
-                          <td>12-04-2022</td>
-                          <td>
-                            <div class="btn">
-                              <a
-                                class="bg-gray-600 text-white rounded p-2 m-1"
-                                href="/edit"
-                              >
-                                Editar
-                              </a>
-                              <a
-                                class="bg-red-600 text-white p-2 rounded m-1"
-                                href="/delete"
-                              >
-                                Eliminar
-                              </a>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>1109414100</td>
-                          <td>Foto #1</td>
-                          <td>Juan Daniel Opina O</td>
-                          <td>Gestión Empresarial</td>
-                          <td>1125634</td>
-                          <td>Exelencia</td>
-                          <td>Inactivo</td>
-                          <td>12-04-2022</td>
-                          <td>
-                            <div class="btn">
-                              <a
-                                class="bg-gray-600 text-white rounded p-2 m-1"
-                                href="/edit"
-                              >
-                                Editar
-                              </a>
-                              <a
-                                class="bg-red-600 text-white p-2 rounded m-1"
-                                href="/delete"
-                              >
-                                Eliminar
-                              </a>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>1109414100</td>
-                          <td>Foto #1</td>
-                          <td>Juan Daniel Opina O</td>
-                          <td>Gestión Empresarial</td>
-                          <td>1125634</td>
-                          <td>Exelencia</td>
-                          <td>Inactivo</td>
-                          <td>12-04-2022</td>
-                          <td>
-                            <div class="btn">
-                              <a
-                                class="bg-gray-600 text-white rounded p-2 m-1"
-                                href="/edit"
-                              >
-                                Editar
-                              </a>
-                              <a
-                                class="bg-red-600 text-white p-2 rounded m-1"
-                                href="/delete"
-                              >
-                                Eliminar
-                              </a>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>1109414100</td>
-                          <td>Foto #1</td>
-                          <td>Juan Daniel Opina O</td>
-                          <td>Gestión Empresarial</td>
-                          <td>1125634</td>
-                          <td>Exelencia</td>
-                          <td>Inactivo</td>
-                          <td>12-04-2022</td>
-                          <td>
-                            <div class="btn">
-                              <a
-                                class="bg-gray-600 text-white rounded p-2 m-1"
-                                href="/edit"
-                              >
-                                Editar
-                              </a>
-                              <a
-                                class="bg-red-600 text-white p-2 rounded m-1"
-                                href="/delete"
-                              >
-                                Eliminar
-                              </a>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>1109414100</td>
-                          <td>Foto #1</td>
-                          <td>Juan Daniel Opina O</td>
-                          <td>Gestión Empresarial</td>
-                          <td>1125634</td>
-                          <td>Exelencia</td>
-                          <td>Inactivo</td>
-                          <td>12-04-2022</td>
-                          <td>
-                            <div class="btn">
-                              <a
-                                class="bg-gray-600 text-white rounded p-2 m-1"
-                                href="/edit"
-                              >
-                                Editar
-                              </a>
-                              <a
-                                class="bg-red-600 text-white p-2 rounded m-1"
-                                href="/delete"
-                              >
-                                Eliminar
-                              </a>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>1109414100</td>
-                          <td>Foto #1</td>
-                          <td>Juan Daniel Opina O</td>
-                          <td>Gestión Empresarial</td>
-                          <td>1125634</td>
-                          <td>Exelencia</td>
-                          <td>Inactivo</td>
-                          <td>12-04-2022</td>
-                          <td>
-                            <div class="btn">
-                              <a
-                                class="bg-gray-600 text-white rounded p-2 m-1"
-                                href="/edit"
-                              >
-                                Editar
-                              </a>
-                              <a
-                                class="bg-red-600 text-white p-2 rounded m-1"
-                                href="/delete"
-                              >
-                                Eliminar
-                              </a>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>1109414100</td>
-                          <td>Foto #1</td>
-                          <td>Juan Daniel Opina O</td>
-                          <td>Gestión Empresarial</td>
-                          <td>1125634</td>
-                          <td>Exelencia</td>
-                          <td>Inactivo</td>
-                          <td>12-04-2022</td>
-                          <td>
-                            <div class="btn">
-                              <a
-                                class="bg-gray-600 text-white rounded p-2 m-1"
-                                href="/edit"
-                              >
-                                Editar
-                              </a>
-                              <a
-                                class="bg-red-600 text-white p-2 rounded m-1"
-                                href="/delete"
-                              >
-                                Eliminar
-                              </a>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>1109414100</td>
-                          <td>Foto #1</td>
-                          <td>Juan Daniel Opina O</td>
-                          <td>Gestión Empresarial</td>
-                          <td>1125634</td>
-                          <td>Exelencia</td>
-                          <td>Inactivo</td>
-                          <td>12-04-2022</td>
-                          <td>
-                            <div class="btn">
-                              <a
-                                class="bg-gray-600 text-white rounded p-2 m-1"
-                                href="/edit"
-                              >
-                                Editar
-                              </a>
-                              <a
-                                class="bg-red-600 text-white p-2 rounded m-1"
-                                href="/delete"
-                              >
-                                Eliminar
-                              </a>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+                   <DataTableC/>
                   </div>
                 </div>
               </div>
