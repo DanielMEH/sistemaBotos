@@ -8,7 +8,6 @@ export const EditElection = () => {
   const getElection = async () => {
     const response = await Axios.get("http://localhost:3002/viewsElections/" + parseInt(id));
     setEleccionGet(response.data.data);
-    console.log(response);
   }
   useEffect(() => {
     getElection();
