@@ -14,6 +14,7 @@ import { CandidatoVotar } from "../layouts/CandidatoVotar";
 import { Select } from "../layouts/Select";
 import { Navigate } from "react-router-dom";
 import { Votar } from "../layouts/Votar";
+import { EditElection } from "../update/EditElection";
 const Router = () => {
   return (
     <ElecctionsContext>
@@ -41,6 +42,7 @@ const Router = () => {
       <Route path="/count/User" element={<Login />} />
       <Route path="/Votar" element={<Login />} />
       <Route path="*" element={<div>Get not found</div>} /> */}
+      <Route path="/editElection/:id" element={< EditElection/>}/>
       </Routes>
     </ElecctionsContext>
   );

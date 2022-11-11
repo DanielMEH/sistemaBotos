@@ -29,7 +29,7 @@ export const Header = () => {
               <FontAwesomeIcon icon={faBars} />
             </button>
             <div
-              className="collapse navbar-collapse flex-grow items-center"
+              className="navbar-collapse flex-grow items-center"
               id="navbarSupportedContent1"
             >
               <Link

@@ -45,7 +45,7 @@ export const DataTableE = () => {
           return (
             <>
             <button className="btn" onClick={() => {
-              console.log("edita",tableMeta.rowData[0]);
+              window.location.href = `/editElection/${tableMeta.rowData[0]}`
             }}> 
               Editar
             </button>
