@@ -58,7 +58,7 @@ export const Votantes = () => {
       estadoscv: e.target.estadoscv.value,
       csvDocument: csv,
     };
-    console.table(dataForm);
+    console.table(dataForm, "Hola");
   };
   useEffect(() => {
     getEleccionesData();
