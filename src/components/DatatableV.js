@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import MUIDataTable from "mui-datatables";
 import Axios from "axios";
 import Swal from "sweetalert2";
-export const DataTableE = () => {
+export const DataTableV = () => {
   const [eleccionGet, setEleccionGet] = useState([]);
   const getElection = async () => {
-    const response = await Axios.get("http://localhost:3002/electionsView");
-    setEleccionGet(response.data.data);
+    const response = await Axios.get("http://localhost:3002/votantesView");
+    setEleccionGet(response.data.message);
     console.log(response);
   };
   useEffect(() => {
@@ -14,23 +14,31 @@ export const DataTableE = () => {
   }, []);
   const columns = [
     {
-      name: "idEleccion",
+      name: "id",
       label: "",
     },
     {
-      name: "descripcion",
+      name: "documento",
       label: "",
     },
     {
-      name: "cargo",
+      name: "nombresApellidos",
+      label: "",
+    },
+    {
+      name: "programaFormacion",
+      label: "",
+    },
+    {
+      name: "fichaPrograma",
+      label: "",
+    },
+    {
+      name: "emitioVoto",
       label: "",
     },
     {
       name: "estado",
-      label: "",
-    },
-    {
-      name: "fecha",
       label: "",
     },
     {
@@ -46,7 +54,7 @@ export const DataTableE = () => {
               <button
                 className="btn"
                 onClick={() => {
-                  window.location.href = `/editElection/${tableMeta.rowData[0]}`;
+                  window.location.href = `/editVotante/${tableMeta.rowData[0]}`;
                 }}
               >
                 Editar
@@ -55,7 +63,7 @@ export const DataTableE = () => {
                 className="btn"
                 onClick={() => {
                   Swal.fire({
-                    title: `Estas seguro de eliminar esta elección?`,
+                    title: `Estas seguro de eliminar este candidato?`,
                     text: `${tableMeta.rowData[1]}`,
                     icon: "warning",
                     showCancelButton: true,
@@ -66,21 +74,21 @@ export const DataTableE = () => {
                     if (result.isConfirmed) {
                       const deleteA = async () => {
                         const response = await Axios.delete(
-                          "http://localhost:3002/deleteElection/" +
+                          "http://localhost:3002/deletvotantes/" +
                             parseInt(tableMeta.rowData[0])
                         );
-                        if (response.data.message === "DELETEELECCION") {
+                        if (response.data.message === "exito") {
                           Swal.fire(
                             "Se elimino exitosamente",
                             "Your file has been deleted.",
                             "success"
                           );
-                          window.location.href = "/elecciones";
-                        } else if (response.data.message === "ERRDELETEELECC") {
+                          window.location.href = "/votantes";
+                        } else if (response.data.message === "deleteexit") {
                           Swal.fire({
                             icon: "error",
                             title: `Hubo un error al eliminar el dato.`,
-                            text: `Esto sucede por que hay candiadatos postulados en esta eleccion o un error en la ejecucion 
+                            text: `Esto sucede por que hay un votante postulados en esta eleccion o un error en la ejecucion 
                           intenta de nuevo`,
                             footer: `Codigo de error ${response.data.message}`,
                           });
@@ -150,7 +158,7 @@ export const DataTableE = () => {
         data={eleccionGet}
         columns={columns}
         options={options}
-        title={"Lista de elecciones"}
+        title={"Lista de Votantes"}
       />
     </div>
   );

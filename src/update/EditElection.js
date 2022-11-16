@@ -1,33 +1,37 @@
-import React, { useState, useEffect } from 'react'
-import Axios from 'axios'
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import Axios from "axios";
+import { useParams } from "react-router-dom";
 
 export const EditElection = () => {
   const { id } = useParams();
   const [eleccionGet, setEleccionGet] = useState([]);
   const getElection = async () => {
-    const response = await Axios.get("http://localhost:3002/viewsElections/" + parseInt(id));
+    const response = await Axios.get(
+      "http://localhost:3002/viewsElections/" + parseInt(id)
+    );
     setEleccionGet(response.data.data);
-  }
+  };
   useEffect(() => {
     getElection();
-  }, [])
+  }, []);
 
   const handdleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const newPost = {
       descripcion: e.target.descripcion.value,
       cargo: e.target.cargo.value,
-      estado: e.target.estado.value
-    }
-    
-    const updateElection = async () => {
-      const response = await Axios.put("http://localhost:3002/updateElection/"+parseInt(id), newPost);
-      window.location.href = '/elecciones'
-    }
-    updateElection()
-  }
+      estado: e.target.estado.value,
+    };
 
+    const updateElection = async () => {
+      const response = await Axios.put(
+        "http://localhost:3002/updateElection/" + parseInt(id),
+        newPost
+      );
+      window.location.href = "/elecciones";
+    };
+    updateElection();
+  };
 
   return (
     <>
@@ -42,9 +46,7 @@ export const EditElection = () => {
                 <label
                   htmlFor="exampleInputEmail2"
                   className="form-label mt-1 text-xl inline-block mb-2 text-gray-700"
-                >
-
-                </label>
+                ></label>
                 <input
                   type="text"
                   className="form-control
@@ -73,8 +75,7 @@ export const EditElection = () => {
                 <label
                   htmlFor="exampleInputEmail2"
                   className="form-label mt-1 text-xl inline-block mb-2 text-gray-700"
-                >
-                </label>
+                ></label>
                 <input
                   type="text"
                   className="form-control
@@ -100,11 +101,12 @@ export const EditElection = () => {
                 />
               </div>
               <div className="form-group mb-6">
-                <select className="form-select appearance-none block w-full px-3py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border 
+                <select
+                  className="form-select appearance-none block w-full px-3py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border 
              border-solid border-gray-300 rounded transition ease-in-out m-0
            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                   aria-label="Default select example"
-                  name='estado'
+                  name="estado"
                 >
                   <option selected> {i.estado} </option>
                   <option value="1">Activo</option>
@@ -115,8 +117,7 @@ export const EditElection = () => {
                 <span
                   href="#!"
                   className="cursor-pointer text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out"
-                >
-                </span>
+                ></span>
               </div>
               <button
                 type="submit"
@@ -154,8 +155,6 @@ export const EditElection = () => {
           </div>
         </div>
       ))}
-
     </>
-  )
-}
-
+  );
+};

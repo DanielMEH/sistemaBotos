@@ -1,56 +1,56 @@
-import React,{useEffect,useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Header } from "../components/Header";
-import {DataTableC} from "../components/DataTableC"
-import Axios from 'axios';
+import { DataTableC } from "../components/DataTableC";
+import Axios from "axios";
 import Swal from "sweetalert2";
 
 export const Candidatos = () => {
   const [Elecciones, setElecciones] = useState([]);
   const [Image, setImage] = useState([]);
-  const consult = async ()=>{
-    const datos = await Axios.get("http://localhost:3002/electionsView")
-    setElecciones(datos.data.data)
+  const consult = async () => {
+    const datos = await Axios.get("http://localhost:3002/electionsView");
+    setElecciones(datos.data.data);
     console.log(datos);
-
-  }
-  const handleSubmit = async (e)=>{
+  };
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const newPostCandidato ={
-        documento:e.target.documento.value,
-        nombreCandidato:e.target.nombre.value,
-        programaFormacion:e.target.programaFormacion.value,
-        fichaPrograma:e.target.numeroFicha.value,
-        estado:e.target.estado.value,
-        imagen:Image,
-        id:e.target.options.value
-    }
-  const response = await Axios.post("http://localhost:3002/postCandidato",newPostCandidato,{
-    
-  headers:{
-    
-    'Content-Type':'multipart/form-data'
-    }
-  })
-  
-  .then((response)=>{
-   if(response.data.message === "POSTCANDIDATO"){
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Candidato Registrado',
-    })
-    window.location.href = "/candidatos"
-   }
-  })
-  .catch((error)=>{
-    console.log(error);
-  })
-  }
+    const newPostCandidato = {
+      documento: e.target.documento.value,
+      nombreCandidato: e.target.nombre.value,
+      programaFormacion: e.target.programaFormacion.value,
+      fichaPrograma: e.target.numeroFicha.value,
+      estado: e.target.estado.value,
+      imagen: Image,
+      id: e.target.options.value,
+    };
+    const response = await Axios.post(
+      "http://localhost:3002/postCandidato",
+      newPostCandidato,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    )
    
-  
-  useEffect(()=>{
- consult();
-  },[])
+      .then((response) => {
+        if (response.data.message === "POSTCANDIDATO") {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Candidato Registrado",
+          });
+          window.location.href = "/candidatos";
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    consult();
+  }, []);
   return (
     <>
       <Header />
@@ -70,29 +70,7 @@ export const Candidatos = () => {
 
                 <div class=" mx-2 p-10 ">
                   <div class="mb-3 xl:w-96">
-                    <select
-                      class="form-select appearance-none
-                          block
-                          w-full
-                          px-3
-                          py-1.5
-                          text-base
-                          font-normal
-                          text-gray-700
-                          bg-white bg-clip-padding bg-no-repeat
-                          border border-solid border-gray-300
-                          rounded
-                          transition
-                          ease-in-out
-                          m-0
-                          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                      aria-label="Default select example"
-                    >
-                      <option selected>Elegir eleccion</option>
-                      <option value="1">Eleccion 1</option>
-                      <option value="2">Eleccion 2</option>
-                      <option value="3">Eleccion 3</option>
-                    </select>
+                   
                   </div>
                 </div>
               </div>
@@ -154,11 +132,10 @@ ease-in-out"
                                   >
                                     Foto
                                   </label>
-                                  <input onChange={
-                                    (e)=>{
+                                  <input
+                                    onChange={(e) => {
                                       setImage(e.target.files[0]);
-                                    }
-                                  }
+                                    }}
                                     class="form-control
             block
             w-full
@@ -174,7 +151,7 @@ ease-in-out"
             ease-in-out
             m-0
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-            name="imagen"
+                                    name="imagen"
                                     type="file"
                                     id="formFile"
                                   />
@@ -196,7 +173,7 @@ ease-in-out"
             ease-in-out
             mt-2
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-            name="documento"
+                                    name="documento"
                                     id="exampleInput7"
                                     placeholder="Documento"
                                   />
@@ -216,7 +193,7 @@ ease-in-out"
             ease-in-out
             mt-2
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-            name="nombre"
+                                    name="nombre"
                                     id="exampleInput7"
                                     placeholder="Nombres Completo y apellidos"
                                   />
@@ -237,7 +214,7 @@ ease-in-out"
             ease-in-out
             mt-2
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-            name="programaFormacion"
+                                    name="programaFormacion"
                                     id="exampleInput7"
                                     placeholder="Programa de Formacion"
                                   />
@@ -257,7 +234,7 @@ ease-in-out"
             ease-in-out
             mt-2
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-            name="numeroFicha"
+                                    name="numeroFicha"
                                     id="exampleInput7"
                                     placeholder="Numero de la ficha"
                                   />
@@ -282,7 +259,7 @@ ease-in-out"
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
             
           "
-          name="descripcion"
+                                    name="descripcion"
                                     id="exampleFormControlTextarea13"
                                     rows="3"
                                     placeholder="Descripción"
@@ -306,7 +283,7 @@ ease-in-out"
                 ease-in-out
                 m-0
                 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                name="estado"
+                                      name="estado"
                                       aria-label="Default select example"
                                     >
                                       <option selected>
@@ -332,16 +309,17 @@ ease-in-out"
                 ease-in-out
                 m-0
                 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                name="options"
+                                      name="options"
                                       aria-label="Default select example"
                                     >
                                       <option selected>
                                         Selecionar Eleccion
                                       </option>
-                                      {Elecciones.map(i=>(
-                                      <option value={i.idEleccion}>{i.descripcion}</option>
-                                      )
-                                      )}
+                                      {Elecciones.map((i) => (
+                                        <option value={i.idEleccion}>
+                                          {i.descripcion}
+                                        </option>
+                                      ))}
                                     </select>
                                   </div>
                                 </div>
@@ -402,7 +380,7 @@ ease-in-out"
                 </div>
                 <div class=" mx-2 p-10 ">
                   <div class="">
-                   <DataTableC/>
+                    <DataTableC />
                   </div>
                 </div>
               </div>

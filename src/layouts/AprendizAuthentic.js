@@ -1,17 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, useNavigate } from "react-router-dom";
 import Axios from "axios";
 import Swal from "sweetalert2";
 export const AprendizAuthentic = () => {
   const [setData, setfirst] = useState(null);
-
+  const [titulo, setTitulo] = useState([]);
   const navegate = useNavigate();
+
+  const getData = async () => {
+    await Axios.get("http://localhost:3002/text").then((response) => {
+      setTitulo(response.data.data);
+      console.log(response);
+    });
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     const documento = e.target.documento.value;
     const result = await Axios.post("http://localhost:3002/votantesView", {
       documento: documento,
     });
+
     if (result.data.message === "SUCCESFULL_VIEW") {
       await Swal.fire({
         position: "top-end",
@@ -26,10 +34,10 @@ export const AprendizAuthentic = () => {
       await Swal.fire({
         icon: "error",
         title: "Error",
-        text: "El documento no es valido",
+        text: "El documento no existe o no es valido",
         footer: "<p>Verifica que estes registrado en la plataforma</p>",
       });
-    } else if (result.data.message === "USER_IS_INACTIVE"){
+    } else if (result.data.message === "USER_IS_INACTIVE") {
       await Swal.fire({
         icon: "error",
         title: "Error",
@@ -38,6 +46,9 @@ export const AprendizAuthentic = () => {
       });
     }
   };
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <>
       <div className="container mx-auto  ">
@@ -45,7 +56,11 @@ export const AprendizAuthentic = () => {
           <div className="w-full xl:w-2/4 lg:w-11/12 flex flex-col sm:flex-row shadow-xl border rounded-xl overflow-hidden">
             <div className="w-full h-auto bg-[#ff8138]  lg:block lg:w-1/2 bg-cover rounded-l-lg">
               <div className="px-8 mb-4 text-center">
-                <h3 className="pt-4 mb-2 text-3xl text-white">Evento 1</h3>
+                <h3 className="pt-4 mb-2 text-3xl text-white">
+                  {titulo.map((i) => (
+                    <h3>{i.text == null ? "hola" : i.text}</h3>
+                  ))}
+                </h3>
                 <p className="mb-2 text-xl text-white">
                   Al momento de votar por su candidato no podra volver a votar.
                   asegurate de de elegir bien.
@@ -112,6 +127,5 @@ export const AprendizAuthentic = () => {
         </div>
       </div>
     </>
-  
   );
 };

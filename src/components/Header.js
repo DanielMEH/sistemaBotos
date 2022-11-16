@@ -6,8 +6,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 export const Header = () => {
-  
-
   const navegate = useNavigate();
   const handleSession = () => {
     navegate("/logout");
@@ -22,14 +20,14 @@ export const Header = () => {
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarSupportedContent1"
-              aria-controls="navbarSupportedContent"
+              aria-controls="navbarSupportedContent1"
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
               <FontAwesomeIcon icon={faBars} />
             </button>
             <div
-              className="navbar-collapse flex-grow items-center"
+              className=" navbar-collapse flex-grow items-center"
               id="navbarSupportedContent1"
             >
               <Link
@@ -84,7 +82,7 @@ export const Header = () => {
                     Votantes
                   </a>
                 </li>
-
+                {/* 
                 <li className="nav-item p-2">
                   <a
                     className={({ isActive }) =>
@@ -96,42 +94,17 @@ export const Header = () => {
                   >
                     Reportes
                   </a>
-                </li>
+                </li> */}
               </ul>
             </div>
             <div className="flex items-center relative">
               <ul
                 className="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none left-auto right-0"
                 aria-labelledby="dropdownMenuButton1"
-              >
-                <li>
-                  <a
-                    className="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-gray-100"
-                    href="#"
-                  >
-                    Action
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-gray-100"
-                    href="#"
-                  >
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                    href="#"
-                  >
-                    Something else here
-                  </a>
-                </li>
-              </ul>
+              ></ul>
             </div>
             <div className="dropdown relative">
-              <a
+              <p
                 className="dropdown-toggle flex items-center hidden-arrow"
                 href="#"
                 id="dropdownMenuButton2"
@@ -140,22 +113,24 @@ export const Header = () => {
                 aria-expanded="false"
               >
                 <span className="mr-1 text-2xl hover:text-black">
-                  Cerrar Sesión{" "}
+                  Mi cuenta{" "}
                 </span>
                 <FontAwesomeIcon icon={faArrowRightToBracket} />
-              </a>
+              </p>
               <ul
                 className="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none left-auto right-0"
                 aria-labelledby="dropdownMenuButton2"
               >
                 <li>
-                  <a
-                    className="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                    href="#"
+                  <p
+                    className="dropdown-item cursor-pointer text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdropt"
                   >
-                    Ajustes
-                  </a>
+                    Crear titulo del evento
+                  </p>
                 </li>
+
                 <li>
                   <span
                     onClick={handleSession}

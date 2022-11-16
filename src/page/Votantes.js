@@ -1,10 +1,164 @@
-import React from 'react'
-import { Header } from '../components/Header'
+import React, { useState, useEffect, useMemo } from "react";
+import { DataTableV } from "../components/DatatableV";
+import { Header } from "../components/Header";
+import Axios from "axios";
+import Swal from "sweetalert2";
 export const Votantes = () => {
+  const [dataE, setDataE] = useState([]);
+  const [csv, setCsv] = useState([]);
+  const handdleSumbit = async (e) => {
+    e.preventDefault();
+    const newDataForm = {
+      documento: parseInt(e.target.documento.value),
+      nombresApellidos: e.target.nombre.value,
+      programaFormacion: e.target.programa.value,
+      fichaPrograma: parseInt(e.target.numFicha.value),
+      idEleccion2: parseInt(e.target.stateEleccion.value),
+    };
+    await Axios.post("http://localhost:3002/creatvotantes", newDataForm).then(
+      (response) => {
+        if (response.data.message === "INSERT_VOTANTES") {
+          Swal.fire({
+            icon: "success",
+            title: "Votante creado correctamente",
+            showConfirmButton: false,
+          });
+          window.location.href = "/votantes";
+        }
+      }
+    );
+  };
+  const getEleccionesData = async () => {
+    const response = await Axios.get("http://localhost:3002/electionsView");
+    setDataE(await response.data.data);
+    console.log(response);
+  };
+  const handdleForm = (e) => {
+    e.preventDefault();
+    const newForm = {
+      textG: e.target.textGy.value,
+    };
+    Axios.put("http://localhost:3002/textUpdate", newForm).then((response) => {
+      if (response.data.data === "INSERT_OK_T") {
+        console.log(response);
+        Swal.fire({
+          icon: "success",
+          title: "Se Actualizo exitosamente",
+          showConfirmButton: false,
+        });
+      }
+    });
+  };
+
+  const handdleButtomCsv = async (e) => {
+    e.preventDefault();
+
+    const dataForm = {
+      stateEleccioncsv: e.target.stateEleccioncsv.value,
+      estadoscv: e.target.estadoscv.value,
+      csvDocument: csv,
+    };
+    console.table(dataForm);
+  };
+  useEffect(() => {
+    getEleccionesData();
+  }, []);
   return (
     <>
       <Header />
       <main>
+        <div
+          class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+          id="staticBackdropt"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog relative w-auto pointer-events-none">
+            <div class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+              <div class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+                <h5
+                  class="text-xl font-medium leading-normal text-gray-800"
+                  id="exampleModalLabel"
+                >
+                  Actualizar titulo del evento
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body relative p-4">
+                <form onSubmit={handdleForm}>
+                  <div class="mb-3 w-96">
+                    <label
+                      for="formFile"
+                      class="form-label inline-block mb-2 text-gray-700"
+                    >
+                      Crear
+                    </label>
+                    <input
+                      class="form-control
+                block
+                w-full
+                px-3
+                py-1.5
+                text-base
+                font-normal
+                text-gray-700
+                bg-white bg-clip-padding
+                border border-solid border-gray-300
+                rounded
+                transition
+                ease-in-out
+                m-0
+                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                      type="text"
+                      id="formFile"
+                      name="textGy"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    class="
+              w-full
+              px-6
+              py-2.5
+              bg-[#ff8138]
+              text-white
+              font-medium
+              text-xl
+              leading-tight
+              Capitalize
+              rounded
+              shadow-md
+              hover:bg-[#fd7e14] hover:shadow-lg
+              focus:bg-[#fd7e14] focus:shadow-lg focus:outline-none focus:ring-0
+              active:bg-[#fd7e14] active:shadow-lg
+              transition
+              duration-150
+              ease-in-out"
+                  >
+                    Actualizar
+                  </button>
+                </form>
+              </div>
+              <div class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
+                <button
+                  type="button"
+                  class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"
+                  data-bs-dismiss="modal"
+                >
+                  Cerrar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
         <section>
           <div class="bg-gray-200 mx-2 my-5 p-2 rounded">
             <h2>Elecciones</h2>
@@ -18,29 +172,6 @@ export const Votantes = () => {
 
               <div class=" mx-2 p-10  ">
                 <div class="mb-3  flex flex-col sm:flex-row">
-                  <select
-                    class="form-select appearance-none
-                          block
-                          w-full
-                          px-3
-                          py-1.5
-                          text-base
-                          font-normal
-                          text-gray-700
-                          bg-white bg-clip-padding bg-no-repeat
-                          border border-solid border-gray-300
-                          rounded
-                          transition
-                          ease-in-out
-                          m-0
-                          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                    aria-label="Default select example"
-                  >
-                    <option selected>Seleccionar una eleccion</option>
-                    <option value="1">Eleccion 1</option>
-                    <option value="2"> Eleccion 2</option>
-                    <option value="3">Eleccion 4</option>
-                  </select>
                   <div class="flex space-x-2 justify-center mx-2">
                     <div
                       class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
@@ -58,7 +189,7 @@ export const Votantes = () => {
                               class="text-xl font-medium leading-normal text-gray-800"
                               id="exampleModalLabel"
                             >
-                              Modal title
+                              Subir
                             </h5>
                             <button
                               type="button"
@@ -68,8 +199,36 @@ export const Votantes = () => {
                             ></button>
                           </div>
                           <div class="modal-body relative p-4">
-                            <form>
+                            <form onSubmit={handdleButtomCsv}>
                               <div class="mb-3 w-96">
+                                <select
+                                  className="form-select appearance-none
+              block
+              w-full
+              px-3
+              py-1.5
+              text-base
+              font-normal
+              text-gray-700
+              bg-white bg-clip-padding bg-no-repeat
+              border border-solid border-gray-300
+              rounded
+              transition
+              ease-in-out
+              m-0
+              focus:text-gray-700 focus:bg-white focus:border--[#ff8138] focus:outline-none"
+                                  aria-label="Default select example"
+                                  name="stateEleccioncsv"
+                                >
+                                  <option selected>
+                                    Selecionar una elección
+                                  </option>
+                                  {dataE.map((responseData) => (
+                                    <option value={responseData.idEleccion}>
+                                      {responseData.descripcion}
+                                    </option>
+                                  ))}
+                                </select>
                                 <label
                                   for="formFile"
                                   class="form-label inline-block mb-2 text-gray-700"
@@ -94,12 +253,40 @@ export const Votantes = () => {
                 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                   type="file"
                                   id="formFile"
+                                  name="scvArch"
+                                  onChange={(e) => {
+                                    setCsv(e.target.files[0]);
+                                  }}
                                 />
                               </div>
+                              <select
+                                class="form-select appearance-none
+                block
+                w-full
+                px-3
+                py-1.5
+                text-base
+                font-normal
+                text-gray-700
+                bg-white bg-clip-padding bg-no-repeat
+                border border-solid border-gray-300
+                rounded
+                transition
+                ease-in-out
+                m-0
+                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                aria-label="Default select example"
+                                name="estadoscv"
+                              >
+                                <option selected>Estado</option>
+                                <option value="Activo">Activo</option>
+                                <option value="Inactivo">Inactivo</option>
+                              </select>
                               <button
                                 type="submit"
                                 class="
               w-full
+              mt-2
               px-6
               py-2.5
               bg-[#ff8138]
@@ -212,13 +399,13 @@ ease-in-out"
                             Ingresar Datos
                           </h5>
                           <div class="block p-6 rounded-lg  bg-white max-w-md">
-                            <form>
+                            <form onSubmit={handdleSumbit}>
                               <div class="mb-3 w-96">
                                 <label
                                   for="formFile"
                                   class="form-label inline-block mb-2 text-gray-700"
                                 >
-                                  Foto
+                                  Documento
                                 </label>
                                 <input
                                   class="form-control
@@ -236,8 +423,9 @@ ease-in-out"
             ease-in-out
             m-0
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                  type="file"
+                                  type="number"
                                   id="formFile"
+                                  name="documento"
                                 />
                               </div>
                               <div class="form-group mb-6">
@@ -258,14 +446,14 @@ ease-in-out"
             m-0
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                   id="exampleInput7"
-                                  placeholder="Nombre Completo"
+                                  placeholder="Nombres y Apellidos"
+                                  name="nombre"
                                 />
                               </div>
                               <div class="form-group mb-6">
-                                <textarea
-                                  class="
-            form-control
-            block
+                                <input
+                                  type="text"
+                                  class="form-control block
             w-full
             px-3
             py-1.5
@@ -278,14 +466,66 @@ ease-in-out"
             transition
             ease-in-out
             m-0
-            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-          "
-                                  id="exampleFormControlTextarea13"
-                                  rows="3"
-                                  placeholder="Descripción"
-                                ></textarea>
+            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                  id="exampleInput7"
+                                  placeholder="Programa de Formación"
+                                  name="programa"
+                                />
                               </div>
-                              <div class="flex justify-center">
+                              <div class="form-group mb-6">
+                                <input
+                                  type="number"
+                                  class="form-control block
+            w-full
+            px-3
+            py-1.5
+            text-base
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                  id="exampleInput7"
+                                  placeholder="Numero de ficha"
+                                  name="numFicha"
+                                />
+                              </div>
+
+                              <div class="flex justify-center flex-col">
+                                <div className="mb-3 xl:w-96">
+                                  <select
+                                    className="form-select appearance-none
+              block
+              w-full
+              px-3
+              py-1.5
+              text-base
+              font-normal
+              text-gray-700
+              bg-white bg-clip-padding bg-no-repeat
+              border border-solid border-gray-300
+              rounded
+              transition
+              ease-in-out
+              m-0
+              focus:text-gray-700 focus:bg-white focus:border--[#ff8138] focus:outline-none"
+                                    aria-label="Default select example"
+                                    name="stateEleccion"
+                                  >
+                                    <option selected>
+                                      Selecionar una elección
+                                    </option>
+                                    {dataE.map((responseData) => (
+                                      <option value={responseData.idEleccion}>
+                                        {responseData.descripcion}
+                                      </option>
+                                    ))}
+                                  </select>
+                                </div>
                                 <div class="mb-3 xl:w-96">
                                   <select
                                     class="form-select appearance-none
@@ -304,15 +544,16 @@ ease-in-out"
                 m-0
                 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                     aria-label="Default select example"
+                                    name="estado"
                                   >
                                     <option selected>Estado</option>
-                                    <option value="1">Activo</option>
-                                    <option value="2">Inactivo</option>
+                                    <option value="Activo">Activo</option>
+                                    <option value="Inactivo">Inactivo</option>
                                   </select>
-                                </div>
+                                </div>{" "}
+                                */
                               </div>
-                              COPY Important! Tailwind Elements is 100% free and
-                              relies
+
                               <button
                                 type="submit"
                                 class="
@@ -374,74 +615,7 @@ ease-in-out"
               </div>
               <div class=" mx-2 p-10 ">
                 <div class="">
-                  <table
-                    id="table_id"
-                    class="ui celled table responsive nowrap unstackable "
-                    style={{ width: "100%" }}
-                  >
-                    <thead class="bg-white border-b">
-                      <tr>
-                        <th>Documento Identidad</th>
-                        <th>Nombres</th>
-                        <th>Apellidos</th>
-                        <th>Fecha Registrado</th>
-                        <th>Estado</th>
-                        <th>Elección</th>
-                        <th>Ajustes</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1094878366</td>
-                        <td>Maria Fernanda</td>
-                        <td>Leal Henao</td>
-                        <td>20/09/2022</td>
-                        <td>Activo</td>
-                        <td>Excelencia</td>
-                        <td>
-                          <div class="btn">
-                            <a
-                              class="bg-gray-600 text-white rounded p-2 m-1"
-                              href="/edit"
-                            >
-                              Editar
-                            </a>
-                            <a
-                              class="bg-red-600 text-white p-2 rounded m-1"
-                              href="/delete"
-                            >
-                              Eliminar
-                            </a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>1005088673</td>
-                        <td>Nicol Dahiana</td>
-                        <td>Leal Henao</td>
-                        <td>20/09/2022</td>
-                        <td>Inactivo</td>
-                        <td>Representante del sena</td>
-
-                        <td>
-                          <div class="btn">
-                            <a
-                              class="bg-gray-600 text-white rounded p-2 m-1"
-                              href="/edit"
-                            >
-                              Editar
-                            </a>
-                            <a
-                              class="bg-red-600 text-white p-2 rounded m-1"
-                              href="/delete"
-                            >
-                              Eliminar
-                            </a>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                  <DataTableV />
                 </div>
               </div>
             </div>
@@ -450,4 +624,4 @@ ease-in-out"
       </main>
     </>
   );
-}
+};

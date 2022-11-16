@@ -89,18 +89,17 @@ export const Resultados = () => {
                   </h3>
 
                   <div className=" mx-2 p-10 ">
-                  
                     <div className="mb-3 grid grid-cols-1 gap-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                       {candidatosGet === "NOT_FOUND_RESULT"
-                        ? "No Hay candidatos para esra eleccion"
+                        ? "No Hay candidatos para esta eleccion"
                         : candidatosGet.map((section) => (
                             <>
-                              <div class="relative mx-auto w-full">
+                              <div class="relative  w-full">
                                 <div class="rounded-lg bg-white p-4 shadow">
-                                  <div class="relative flex h-52 justify-center overflow-hidden rounded-lg">
-                                    <div class="w-full transform transition-transform duration-500 ease-in-out hover:scale-110">
-                                      <div class="absolute inset-0 bg-gray-200 bg-opacity-80">
-                                        <img src={section.imgUrl} alt="" />
+                                  <div class="relative flex h-fit  overflow-hidden rounded-lg">
+                                    <div class="w-full ">
+                                      <div class=" bg-gray-200 p-1 bg-opacity-80">
+                                        <img src={section.imgUrl} alt="" className="w-1/5"/>
                                       </div>
                                     </div>
 
@@ -128,10 +127,10 @@ export const Resultados = () => {
                                       {section.programaFormacion}
                                     </h2>
 
-                                    <p class="text-primary mt-2 inline-block whitespace-nowrap rounded-xl font-semibold leading-tight">
-                                      <span class="text-2xl text-gray-500">
-                                        Numero de la ficha{" "}
-                                        {section.fichaPrograma}
+                                    <p class="text-primary mt-2 inline-block  whitespace-nowrap rounded-xl font-semibold leading-tight">
+                                      <span class="text-2xl flex flex-col text-gray-500">
+                                        <p>Numero de la ficha </p>
+                                        <p>{section.fichaPrograma}</p>
                                       </span>
                                     </p>
                                   </div>

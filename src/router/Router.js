@@ -15,6 +15,8 @@ import { Select } from "../layouts/Select";
 import { Navigate } from "react-router-dom";
 import { Votar } from "../layouts/Votar";
 import { EditElection } from "../update/EditElection";
+import { UpdCand } from "../update/UpdCand";
+import { EditVotante } from "../update/EditVotante";
 const Router = () => {
   return (
     <ElecctionsContext>
@@ -33,16 +35,11 @@ const Router = () => {
         <Route path="/CandidatoVotar/:id/:idk" element={<CandidatoVotar />} />
         <Route path="/selectEleccion/:id" element={<Select />} />
         <Route path="/votar/:idk/:documento1" element={<Votar />} />
-        <Route
-          path="/eleccion"
-          element={<Navigate to="/selectEleccion/:id" />}
-        />
-        {/* <Route path="/" element={<Login />} />
-      <Route path="/User/:id" element={<Login />} />
-      <Route path="/count/User" element={<Login />} />
-      <Route path="/Votar" element={<Login />} />
-      <Route path="*" element={<div>Get not found</div>} /> */}
-      <Route path="/editElection/:id" element={< EditElection/>}/>
+        <Route path="/eleccion" element={<Navigate to="/selectEleccion/:id" />}/>
+        <Route path="/editElection/:id" element={<EditElection />} />
+        <Route path="/editCandidato/:id" element={<UpdCand />} />
+        <Route path="/editVotante/:id" element={<EditVotante/>} />
+
       </Routes>
     </ElecctionsContext>
   );

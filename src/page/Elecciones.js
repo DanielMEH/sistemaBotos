@@ -12,7 +12,6 @@ export const Elecciones = () => {
     setEleccionGet(response.data.data);
   };
   const handlesubmit = async (e) => {
-
     e.preventDefault();
     const descripcion = e.target.descripcion.value;
     const cargo = e.target.cargo.value;
@@ -26,7 +25,7 @@ export const Elecciones = () => {
       "http://localhost:3002/createElection",
       formData
     );
-    console.log(responseForm);
+
     if (responseForm.data.data === "INSERTELLECCION") {
       let timerInterval;
       await Swal.fire({
@@ -57,6 +56,8 @@ export const Elecciones = () => {
         showConfirmButton: false,
         timer: 1500,
       });
+
+      window.location.href = "/elecciones";
     } else if (responseForm.data.data === "ERRDATA") {
       await Swal.fire({
         icon: "error",
@@ -267,7 +268,7 @@ ease-in-out"
                   <div className="  bg-white shadow-lg rounded-sm border border-gray-200">
                     <div className="">
                       <div className="overflow-x-auto">
-                        <DataTableE/>
+                        <DataTableE />
                       </div>
                     </div>
                   </div>

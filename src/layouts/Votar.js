@@ -7,7 +7,6 @@ import Axios from "axios";
 export const Votar = () => {
   const { idk, documento1 } = useParams();
   const id = documento1;
-  console.log("documento1 :: ----", idk);
   const handleEvendSource = async () => {
     const response = await Axios.put(
       "http://localhost:3002/updatvotantesfine/" +
