@@ -23,7 +23,7 @@ export const DataTableC = () => {
       name: "documento",
       label: "",
     },
-   
+
     {
       name: "nombreCandidato",
       label: "Nombres Y apellidos",
@@ -71,12 +71,12 @@ export const DataTableC = () => {
                     const response = await Axios.delete(
                       "http://localhost:3002/deleteCandidato/" + id
                     );
-
+                    console.log(response);
                     if (response.data.message === "ERROR_DELETE_CAN") {
                       await Swal.fire({
                         icon: "error",
                         title: "Oops... Parece que hubo un error",
-                        text: "Esto sucede por que este candidato esta asociado a una elección",
+                        text: "Esto sucede por que un aprendiz voto por este candidato",
                         footer: "",
                       });
                       window.location.href = "/candidatos";

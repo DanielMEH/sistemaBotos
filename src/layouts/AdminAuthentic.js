@@ -19,7 +19,7 @@ export const Admin = () => {
         formPost
       );
       console.log(response);
-      if (response.data.data === "LOGIN_OK") {
+      if (response.data.message === "LOGIN_OK") {
         console.log(response);
         let timerInterval;
         await Swal.fire({
@@ -86,7 +86,7 @@ export const Admin = () => {
         <div className="block p-6 rounded-lg h-fit border shadow-2xl bg-white max-w-sm absolute inset-0 m-auto">
           <form onSubmit={handdleSubmit}>
             <h2 className="text-center text-2xl font-semibold mb-2">
-              {cuenta ? "Iniciar session" : "Registrarse"}
+              {cuenta ? "Iniciar sesión" : "Registrarse"}
             </h2>
             <div className="form-group mb-6">
               <label

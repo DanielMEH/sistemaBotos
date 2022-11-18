@@ -38,13 +38,14 @@ export const Votantes = () => {
     const newForm = {
       textG: e.target.textGy.value,
     };
+
     Axios.put("http://localhost:3002/textUpdate", newForm).then((response) => {
-      if (response.data.data === "INSERT_OK_T") {
+      if (response.data.message === "SUCCESFULL_TEXT") {
         console.log(response);
         Swal.fire({
           icon: "success",
           title: "Se Actualizo exitosamente",
-          showConfirmButton: false,
+          showConfirmButton: true,
         });
       }
     });
@@ -182,25 +183,25 @@ export const Votantes = () => {
                       aria-labelledby="staticBackdropLabel"
                       aria-hidden="true"
                     >
-                      <div class="modal-dialog relative w-auto pointer-events-none">
-                        <div class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
-                          <div class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+                      <div className="modal-dialog relative w-auto pointer-events-none">
+                        <div className="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+                          <div className="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
                             <h5
-                              class="text-xl font-medium leading-normal text-gray-800"
+                              className="text-xl font-medium leading-normal text-gray-800"
                               id="exampleModalLabel"
                             >
                               Subir
                             </h5>
                             <button
                               type="button"
-                              class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+                              className="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
                               data-bs-dismiss="modal"
                               aria-label="Close"
                             ></button>
                           </div>
-                          <div class="modal-body relative p-4">
+                          <div className="modal-body relative p-4">
                             <form onSubmit={handdleButtomCsv}>
-                              <div class="mb-3 w-96">
+                              <div className="mb-3 w-96">
                                 <select
                                   className="form-select appearance-none
               block
@@ -231,12 +232,12 @@ export const Votantes = () => {
                                 </select>
                                 <label
                                   for="formFile"
-                                  class="form-label inline-block mb-2 text-gray-700"
+                                  className="form-label inline-block mb-2 text-gray-700"
                                 >
                                   Seleccionar Archivo .Csv
                                 </label>
                                 <input
-                                  class="form-control
+                                  className="form-control
                 block
                 w-full
                 px-3
@@ -260,7 +261,7 @@ export const Votantes = () => {
                                 />
                               </div>
                               <select
-                                class="form-select appearance-none
+                                className="form-select appearance-none
                 block
                 w-full
                 px-3
@@ -284,7 +285,7 @@ export const Votantes = () => {
                               </select>
                               <button
                                 type="submit"
-                                class="
+                                className="
               w-full
               mt-2
               px-6
@@ -308,10 +309,10 @@ export const Votantes = () => {
                               </button>
                             </form>
                           </div>
-                          <div class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
+                          <div className="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
                             <button
                               type="button"
-                              class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"
+                              className="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"
                               data-bs-dismiss="modal"
                             >
                               Cerrar
@@ -323,7 +324,7 @@ export const Votantes = () => {
                     <div>
                       <button
                         type="button"
-                        class="inline-block mt-2 sm:mt-0 px-6 pt-2.5 pb-2 bg-gray-500 text-white font-medium text-xs leading-normal uppercase rounded shadow-md hover:bg-gray-600 hover:shadow-lg focus:bg-gray-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out flex align-center
+                        className="inline-block mt-2 sm:mt-0 px-6 pt-2.5 pb-2 bg-gray-500 text-white font-medium text-xs leading-normal uppercase rounded shadow-md hover:bg-gray-600 hover:shadow-lg focus:bg-gray-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out flex align-center
                               whitespace-nowrap"
                         data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop"
@@ -353,14 +354,14 @@ export const Votantes = () => {
           </div>
         </section>
         <section>
-          <div class="border border-gray-200 rounded mx-2 mt-2">
-            <div class="border-2">
-              <div class="bg-[#ff8138]  text-white  rounded p-2 flex justify-between items-center">
+          <div className="border border-gray-200 rounded mx-2 mt-2">
+            <div className="border-2">
+              <div className="bg-[#ff8138]  text-white  rounded p-2 flex justify-between items-center">
                 <h3>lista de Elecciones</h3>
-                <div class="">
+                <div className="">
                   <button
                     type="button"
-                    class="px-6
+                    className="px-6
 py-2.5
 bg-gray-600
 text-white
@@ -383,32 +384,32 @@ ease-in-out"
                   </button>
 
                   <div
-                    class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+                    className="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
                     id="exampleModal"
                     tabindex="-1"
                     aria-labelledby="exampleModalLabel"
                     aria-hidden="true"
                   >
-                    <div class="modal-dialog relative w-auto pointer-events-none">
-                      <div class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
-                        <div class="modal-header flex flex-col flex-shrink-0 items-center justify-center p-4 border-b border-gray-200 rounded-t-md">
+                    <div className="modal-dialog relative w-auto pointer-events-none">
+                      <div className="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+                        <div className="modal-header flex flex-col flex-shrink-0 items-center justify-center p-4 border-b border-gray-200 rounded-t-md">
                           <h5
-                            class="text-xl font-medium leading-normal text-gray-800"
+                            className="text-xl font-medium leading-normal text-gray-800"
                             id="exampleModalLabel"
                           >
                             Ingresar Datos
                           </h5>
-                          <div class="block p-6 rounded-lg  bg-white max-w-md">
+                          <div className="block p-6 rounded-lg  bg-white max-w-md">
                             <form onSubmit={handdleSumbit}>
-                              <div class="mb-3 w-96">
+                              <div className="mb-3 w-96">
                                 <label
                                   for="formFile"
-                                  class="form-label inline-block mb-2 text-gray-700"
+                                  className="form-label inline-block mb-2 text-gray-700"
                                 >
                                   Documento
                                 </label>
                                 <input
-                                  class="form-control
+                                  className="form-control
             block
             w-full
             px-3
@@ -428,10 +429,10 @@ ease-in-out"
                                   name="documento"
                                 />
                               </div>
-                              <div class="form-group mb-6">
+                              <div className="form-group mb-6">
                                 <input
                                   type="text"
-                                  class="form-control block
+                                  className="form-control block
             w-full
             px-3
             py-1.5
@@ -450,10 +451,10 @@ ease-in-out"
                                   name="nombre"
                                 />
                               </div>
-                              <div class="form-group mb-6">
+                              <div className="form-group mb-6">
                                 <input
                                   type="text"
-                                  class="form-control block
+                                  className="form-control block
             w-full
             px-3
             py-1.5
@@ -472,10 +473,10 @@ ease-in-out"
                                   name="programa"
                                 />
                               </div>
-                              <div class="form-group mb-6">
+                              <div className="form-group mb-6">
                                 <input
                                   type="number"
-                                  class="form-control block
+                                  className="form-control block
             w-full
             px-3
             py-1.5
@@ -495,7 +496,7 @@ ease-in-out"
                                 />
                               </div>
 
-                              <div class="flex justify-center flex-col">
+                              <div className="flex justify-center flex-col">
                                 <div className="mb-3 xl:w-96">
                                   <select
                                     className="form-select appearance-none
@@ -526,9 +527,9 @@ ease-in-out"
                                     ))}
                                   </select>
                                 </div>
-                                <div class="mb-3 xl:w-96">
+                                <div className="mb-3 xl:w-96">
                                   <select
-                                    class="form-select appearance-none
+                                    className="form-select appearance-none
                 block
                 w-full
                 px-3
@@ -556,7 +557,7 @@ ease-in-out"
 
                               <button
                                 type="submit"
-                                class="
+                                className="
           w-full
           px-6
           py-2.5
@@ -581,15 +582,15 @@ ease-in-out"
                           </div>
                           <button
                             type="button"
-                            class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+                            className="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
                             data-bs-dismiss="modal"
                             aria-label="Close"
                           ></button>
                         </div>
-                        <div class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
+                        <div className="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
                           <button
                             type="button"
-                            class="px-6
+                            className="px-6
     py-2.5
     bg-red-600
     text-white
@@ -613,8 +614,8 @@ ease-in-out"
                   </div>
                 </div>
               </div>
-              <div class=" mx-2 p-10 ">
-                <div class="">
+              <div className=" mx-2 p-10 ">
+                <div className="">
                   <DataTableV />
                 </div>
               </div>

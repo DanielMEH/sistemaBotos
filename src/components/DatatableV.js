@@ -4,10 +4,11 @@ import Axios from "axios";
 import Swal from "sweetalert2";
 export const DataTableV = () => {
   const [eleccionGet, setEleccionGet] = useState([]);
+  console.log("555555555", eleccionGet);
   const getElection = async () => {
     const response = await Axios.get("http://localhost:3002/votantesView");
     setEleccionGet(response.data.message);
-    console.log(response);
+    console.log("----------", response);
   };
   useEffect(() => {
     getElection();
@@ -88,8 +89,7 @@ export const DataTableV = () => {
                           Swal.fire({
                             icon: "error",
                             title: `Hubo un error al eliminar el dato.`,
-                            text: `Esto sucede por que hay un votante postulados en esta eleccion o un error en la ejecucion 
-                          intenta de nuevo`,
+                            text: `Esto sucede porque  un votante ya voto en este candidato  o un error en la ejecucion`,
                             footer: `Codigo de error ${response.data.message}`,
                           });
                         }

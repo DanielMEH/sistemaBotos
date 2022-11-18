@@ -104,7 +104,7 @@ ease-in-out"
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
               >
-                Agregar nuevo
+                Agregar nueva Elección
               </button>
               <div
                 className="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"

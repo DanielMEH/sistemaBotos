@@ -80,7 +80,7 @@ export const DataTableE = () => {
                           Swal.fire({
                             icon: "error",
                             title: `Hubo un error al eliminar el dato.`,
-                            text: `Esto sucede por que hay candiadatos postulados en esta eleccion o un error en la ejecucion 
+                            text: `Esto sucede porque hay candiadatos postulados en esta eleccion o un error en la ejecucion 
                           intenta de nuevo`,
                             footer: `Codigo de error ${response.data.message}`,
                           });

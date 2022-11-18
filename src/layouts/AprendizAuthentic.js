@@ -19,7 +19,7 @@ export const AprendizAuthentic = () => {
     const result = await Axios.post("http://localhost:3002/votantesView", {
       documento: documento,
     });
-
+    console.log(result);
     if (result.data.message === "SUCCESFULL_VIEW") {
       await Swal.fire({
         position: "top-end",

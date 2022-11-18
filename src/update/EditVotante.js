@@ -33,13 +33,14 @@ export const EditVotante = () => {
       `http://localhost:3002/updatvotantes/${id}`,
       newDataForm
     ).then((response) => {
+      console.log(response);
       if (response.data.message === "UploadData") {
         Swal.fire({
           icon: "success",
           title: "Votante Actualizado",
           showConfirmButton: false,
         });
-        window.location.href = "/votantes";
+        // window.location.href = "/votantes";
       } else if (response.data.message === "ErrorUploadData") {
         Swal.fire({
           icon: "error",
@@ -55,10 +56,10 @@ export const EditVotante = () => {
   }, []);
   return (
     <>
-      <div class="block p-6 rounded-lg  bg-white max-w-md">
+      <div class="block p-6 rounded-lg mx-auto  bg-white max-w-md">
         {vot.map((i) => (
-          <form onSubmit={handdleSumbit}>
-            <div class="mb-3 w-96">
+          <form onSubmit={handdleSumbit} className="border p-3 rounded">
+            <div class="mb-3 w-full">
               <label
                 for="formFile"
                 class="form-label inline-block mb-2 text-gray-700"
@@ -69,7 +70,7 @@ export const EditVotante = () => {
                 class="form-control
             block
             w-full
-            px-3
+            px-1
             py-1.5
             text-base
             font-normal
@@ -234,7 +235,7 @@ export const EditVotante = () => {
           duration-150
           ease-in-out"
             >
-              Registrar
+              Actualizar
             </button>
           </form>
         ))}
