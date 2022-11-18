@@ -17,6 +17,7 @@ import { Votar } from "../layouts/Votar";
 import { EditElection } from "../update/EditElection";
 import { UpdCand } from "../update/UpdCand";
 import { EditVotante } from "../update/EditVotante";
+import {Perfil} from "../components/Perfil"
 const Router = () => {
   return (
     <ElecctionsContext>
@@ -39,7 +40,7 @@ const Router = () => {
         <Route path="/editElection/:id" element={<EditElection />} />
         <Route path="/editCandidato/:id" element={<UpdCand />} />
         <Route path="/editVotante/:id" element={<EditVotante/>} />
-
+        <Route path="/perfil" element={<Perfil />} />
       </Routes>
     </ElecctionsContext>
   );
