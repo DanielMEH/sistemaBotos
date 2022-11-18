@@ -8,6 +8,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 export const Header = () => {
   const navegate = useNavigate();
   const handleSession = () => {
+    console.log("cerrar sesion");
     navegate("/logout");
   };
   return (
